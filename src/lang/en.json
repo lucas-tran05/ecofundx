@@ -1,0 +1,89 @@
+{
+    "welcome": "Welcome to EcoFundX",
+    "welcome-login-sub": "Welcome back! Please login to your account",
+    "login": "Login",
+    "login-sub": "Please enter your credentials to log in.",
+    "email-error": "Invalid email address.",
+    "password-error": "Invalid password.",
+    "password": "Password",
+    "register": "Register",
+    "logout": "Logout",
+    "forum": "Forum",
+    "home": "Home",
+    "admin": "Admin",
+    "about": "About",
+    "contact": "Contact",
+    "projects": "Projects",
+    "profile": "Profile",
+    "403": "403 - Forbidden",
+    "403-sub": "Sorry, you do not have permission to access this page.",
+    "404": "404 - Page Not Found",
+    "404-sub": "Could not find the page you are looking for.",
+    "footer-description": "EcoFundX is a crowdfunding platform dedicated to supporting environmental protection projects.",
+    "footer-links": "Links",
+    "footer-legal": "Legal",
+    "terms-of-use": "Terms of Use",
+    "privacy-policy": "Privacy Policy",
+    "fundraising-regulations": "Fundraising Regulations",
+    "footer-contact": "Contact With Us",
+    "footer-copyright": "All rights reserved. Design by EcoFundX team.",
+    "error": {
+        "fill-fields": "Please fill in both email and password.",
+        "invalid-email": "Invalid email address.",
+        "title": "An error occurred"
+    },
+    "or-continue-with": "Or continue with",
+    "dont-have-an-account": "Don't have an account?",
+    "register-now": "Register now",
+    "loading": "Loading...",
+    "active": "Activation successful!",
+    "account_activated": "Account activated!",
+    "account_activated_description": "Your account has been successfully activated. You can login and start using the service.",
+    "account_pending": "Pending activation",
+    "your_account_is_pending_activation": "Your account is pending activation. Please check your email or contact the administrator.",
+    "go_to_login": "Go to login",
+    "account_active_no_status": "Account status unknown.",
+    "resend_code_in": "Resend code in",
+    "resend_activation_email": "Resend activation email",
+    "resend_activation_email_alert": "Activation email has been resent!",
+    "hero": {
+        "title": "Connecting Resources\nDriving Green Innovation",
+        "description": "The leading community investment platform for eco-friendly projects. Create positive impact while earning sustainable profits."
+    },
+    "common": {
+        "join_now": "Join Now",
+        "learn_more": "Learn More",
+        "register_free": "Register for Free",
+        "invest_now": "Invest Now"
+    },
+    "features": {
+        "title": "Why Choose EcoFundX?",
+        "description": "The leading community investment platform for eco-friendly projects.",
+        "community": "Crowdfunding",
+        "community_desc": "Connect investors with promising green projects",
+        "profit": "Sustainable Investment",
+        "profit_desc": "Generate stable profit from eco-friendly ventures",
+        "risk": "Risk Management",
+        "risk_desc": "Professional risk evaluation for every investment"
+    },
+    "h-projects": {
+        "title": "Featured Projects",
+        "desc": "Projects making a positive impact while raising funds",
+        "progress": "{{progress}}% completed",
+        "raised": "Raised: {{amount}}",
+        "target": "Target: {{amount}}"
+    },
+    "cta": {
+        "ready": "Ready to contribute to a greener world?",
+        "support": "Join us in making a positive change through smart and sustainable investments."
+    },
+    "roles": {
+        "investor": "For Investors",
+        "project_owner": "For Project Owners"
+    },
+    "form": {
+        "easy_register": "Easy Registration",
+        "market_access": "Access to wide investment market",
+        "support_dev": "Project development support"
+    }
+}

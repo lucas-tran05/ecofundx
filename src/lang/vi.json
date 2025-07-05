@@ -1,0 +1,89 @@
+{
+    "welcome": "Chào mừng",
+    "welcome-login-sub": "Chào mừng trở lại! Vui lòng đăng nhập vào tài khoản của bạn.",
+    "login": "Đăng nhập",
+    "login-sub": "Vui lòng nhập thông tin đăng nhập của bạn để đăng nhập.",
+    "email-error": "Địa chỉ email không hợp lệ.",
+    "password-error": "Mật khẩu không hợp lệ.",
+    "password": "Mật khẩu",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất",
+    "forum": "Diễn đàn",
+    "home": "Trang chủ",
+    "admin": "Quản trị",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "projects": "Dự án",
+    "profile": "Hồ sơ",
+    "403": "403 - Cấm truy cập",
+    "403-sub": "Xin lỗi, bạn không có quyền truy cập vào trang này.",
+    "404": "404 - Không tìm thấy trang",
+    "404-sub": "Không thể tìm thấy trang bạn đang tìm kiếm.",
+    "footer-description": "EcoFundX là một nền tảng gây quỹ cộng đồng dành riêng cho việc hỗ trợ các dự án bảo vệ môi trường.",
+    "footer-links": "Liên kết",
+    "footer-legal": "Pháp lý",
+    "terms-of-use": "Điều khoản sử dụng",
+    "privacy-policy": "Chính sách bảo mật",
+    "fundraising-regulations": "Quy định gây quỹ",
+    "footer-contact": "Liên hệ với chúng tôi",
+    "footer-copyright": "Tất cả quyền được bảo lưu. Thiết kế bởi nhóm EcoFundX.",
+    "error": {
+        "fill-fields": "Vui lòng điền đầy đủ email và mật khẩu.",
+        "invalid-email": "Email không hợp lệ.",
+        "title": "Có lỗi xảy ra"
+    },
+    "or-continue-with": "Hoặc tiếp tục với",
+    "dont-have-an-account": "Bạn chưa có tài khoản?",
+    "register-now": "Đăng ký ngay",
+    "loading": "Đang tải...",
+    "active": "Kích hoạt thành công!",
+    "account_activated": "Tài khoản đã kích hoạt!",
+    "account_activated_description": "Tài khoản của bạn đã được kích hoạt thành công. Bạn có thể đăng nhập và bắt đầu sử dụng dịch vụ.",
+    "account_pending": "Đang chờ kích hoạt",
+    "your_account_is_pending_activation": "Tài khoản của bạn đang chờ kích hoạt. Vui lòng kiểm tra email hoặc liên hệ quản trị viên.",
+    "go_to_login": "Về trang đăng nhập",
+    "account_active_no_status": "Trạng thái không xác định.",
+    "resend_code_in": "Gửi lại mã trong",
+    "resend_activation_email": "Gửi lại email kích hoạt",
+    "resend_activation_email_alert": "Email kích hoạt đã được gửi lại!",
+    "hero": {
+        "title": "Kết nối nguồn lực\nThúc đẩy sáng kiến xanh",
+        "description": "Nền tảng đầu tư cộng đồng hàng đầu cho các dự án thân thiện với môi trường. Tạo ra tác động tích cực cho hành tinh while đạt được lợi nhuận bền vững."
+    },
+    "common": {
+        "join_now": "Tham gia ngay",
+        "learn_more": "Tìm hiểu thêm",
+        "register_free": "Đăng ký miễn phí",
+        "invest_now": "Đầu tư ngay"
+    },
+    "features": {
+        "title": "Tại sao chọn EcoFundX?",
+        "description": "Nền tảng đầu tư cộng đồng hàng đầu cho các dự án thân thiện với môi trường.",
+        "community": "Huy động vốn cộng đồng",
+        "community_desc": "Kết nối các nhà đầu tư với các dự án xanh tiềm năng",
+        "profit": "Đầu tư bền vững sinh lợi",
+        "profit_desc": "Tạo ra lợi nhuận ổn định từ các dự án thân thiện môi trường",
+        "risk": "Kiểm soát rủi ro",
+        "risk_desc": "Đánh giá và quản lý rủi ro chuyên nghiệp"
+    },
+    "h-projects": {
+        "title": "Dự án nổi bật",
+        "desc": "Các dự án đang gây quỹ và tạo ra tác động tích cực",
+        "progress": "{{progress}}% hoàn thành",
+        "raised": "Đã huy động: {{amount}}",
+        "target": "Mục tiêu: {{amount}}"
+    },
+    "cta": {
+        "ready": "Sẵn sàng đóng góp cho môi trường xanh hơn?",
+        "support": "Cùng chúng tôi tạo ra những thay đổi tích cực cho hành tinh qua những khoản đầu tư thông minh và bền vững."
+    },
+    "roles": {
+        "investor": "Cho nhà đầu tư tìm dự án",
+        "project_owner": "Cho dự án tìm vốn"
+    },
+    "form": {
+        "easy_register": "Đăng ký dễ dàng",
+        "market_access": "Tiếp cận thị trường đầu tư rộng lớn",
+        "support_dev": "Hỗ trợ phát triển dự án"
+    }
+}
