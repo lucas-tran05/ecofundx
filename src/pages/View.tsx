@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import ProjectCard from "@/components/ProjectCard";
 import type { Project } from "@/types/project";
 import { Button } from "@/components/ui/button";
 
