@@ -6,9 +6,7 @@ import {
     Phone, 
     MapPin, 
     Calendar, 
-    Settings, 
     Camera, 
-    Edit3, 
     Save, 
     X,
     Shield,
@@ -16,7 +14,6 @@ import {
     Heart,
     DollarSign,
     Star,
-    Lock,
     Eye,
     EyeOff
 } from "lucide-react";
@@ -28,7 +25,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Switch } from "@/components/ui/switch";
 
 const ProfilePage: React.FC = () => {
     // const { t } = useTranslation();

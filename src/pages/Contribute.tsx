@@ -16,7 +16,6 @@ export default function ProjectContributePage() {
             raised: 2,
             target: 5,
             progress: 40,
-            color: "bg-green-500",
         },
         {
             id: "2",
@@ -26,7 +25,6 @@ export default function ProjectContributePage() {
             raised: 3,
             target: 6,
             progress: 50,
-            color: "bg-blue-500",
         },
     ];
 
