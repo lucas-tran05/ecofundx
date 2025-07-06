@@ -1,8 +1,23 @@
 export interface UserType {
-    name: string;
-    email: string;
-    role: number;
+    id: string;
+    fullname: string;
+    username: string;
     phone: string;
-    avatar_url: string;
+    email: string;
+    password?: string;
+    confirmPassword?: string;
+    status: boolean;
+    role: number;
+    avatar?: string;
+    social?: [
+        {
+            facebook?: string;
+            twitter?: string;
+            linkedin?: string;
+        }
+    ];
     active: boolean;
+    createdAt?: string;
+    updatedAt?: string;
+    type: string;
 }

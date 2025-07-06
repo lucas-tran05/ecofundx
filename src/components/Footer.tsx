@@ -50,13 +50,13 @@ const AppFooter: React.FC = () => {
                         <h5 className="text-lg font-semibold ">{t("footer-contact")}</h5>
                         <div className="flex gap-4">
                             <a href="#" target="_blank" rel="noopener noreferrer">
-                                <Facebook className=" w-5 h-5 hover:text-primary" />
+                                <Facebook className=" w-8 h-8 hover:text-primary" />
                             </a>
                             <a href="#" target="_blank" rel="noopener noreferrer">
-                                <Twitter className=" w-5 h-5 hover:text-primary" />
+                                <Twitter className=" w-8 h-8 hover:text-primary" />
                             </a>
                             <a href="#" target="_blank" rel="noopener noreferrer">
-                                <Linkedin className=" w-5 h-5 hover:text-primary" />
+                                <Linkedin className=" w-8 h-8 hover:text-primary" />
                             </a>
                         </div>
                     </div>

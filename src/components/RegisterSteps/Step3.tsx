@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { useTranslation } from "react-i18next"
+import { register } from "@/services/authServices"
 
 export default function Step3() {
     const navigate = useNavigate()
@@ -37,17 +38,31 @@ export default function Step3() {
         }
     }
 
-    const handleContinue = () => {
-        const prev = JSON.parse(localStorage.getItem("register") || "{}")
-        localStorage.setItem("register", JSON.stringify({
-            ...prev,
-            avatar,
-            bio,
-            social: links
-        }))
-        navigate("/active?status=pending")
-        localStorage.removeItem("register")
-    }
+    const handleSubmit = async () => {
+        try {
+            const prev = JSON.parse(localStorage.getItem("register") || "{}");
+            const payload = {
+                ...prev,
+                avatar,
+                bio,
+                social: links,
+                type: "normal"
+            };
+            console.log(payload);
+            const response = await register(payload);
+
+            if (response) {
+                localStorage.removeItem("register");
+                navigate("/active?status=pending");
+            } else {
+                alert("Đăng ký thất bại. Có gì đó sai sai...");
+            }
+        } catch (err) {
+            console.error("Register error:", err);
+            alert("Lỗi khi gửi đăng ký. Thử lại sau nha.");
+        }
+    };
+
 
     return (
         <div className="flex items-center justify-center w-full max-w-screen-xl px-4 bg-white mx-auto">
@@ -120,7 +135,7 @@ export default function Step3() {
                         <Button variant="outline" onClick={() => navigate("/register?step=2")}>
                             ← {t('back')}
                         </Button>
-                        <Button onClick={handleContinue}>
+                        <Button onClick={handleSubmit}>
                             {t('submit')} →
                         </Button>
                     </div>

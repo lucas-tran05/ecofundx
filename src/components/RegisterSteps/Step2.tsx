@@ -1,12 +1,10 @@
 import InputField from "@/components/InputField"
-import { useEffect } from "react"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, ArrowLeft } from "lucide-react"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { useTranslation, Trans } from "react-i18next"
 
 export default function RegisterStep2() {
@@ -23,6 +21,7 @@ export default function RegisterStep2() {
         terms: false
     })
 
+    // Load từ localStorage nếu có
     useEffect(() => {
         const saved = localStorage.getItem("register")
         if (saved) {
@@ -39,19 +38,21 @@ export default function RegisterStep2() {
         }
     }, [])
 
-
     const handleChange = (field: string, value: string) => {
         setForm(prev => ({ ...prev, [field]: value }))
     }
 
+    // 🔍 Hàm kiểm tra form hợp lệ
     const isFormValid = () => {
         return (
-            form.fullName.trim() &&
-            form.phone.trim() &&
-            form.password &&
-            form.confirmPassword &&
+            form.fullName.trim().length > 0 &&
+            form.username.trim().length > 0 &&
+            form.phone.trim().length > 0 &&
+            form.email.trim().length > 0 &&
+            form.password.length > 0 &&
+            form.confirmPassword.length > 0 &&
             form.password === form.confirmPassword &&
-            form.terms
+            form.terms === true
         )
     }
 
@@ -59,7 +60,6 @@ export default function RegisterStep2() {
         if (!isFormValid()) return
 
         const prev = JSON.parse(localStorage.getItem("register") || "{}")
-
         localStorage.setItem("register", JSON.stringify({
             ...prev,
             ...form
@@ -75,6 +75,7 @@ export default function RegisterStep2() {
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-1">
                             <InputField
+                                required
                                 label={t("fullName")}
                                 id="fullName"
                                 placeholder="John Cooper"
@@ -84,15 +85,17 @@ export default function RegisterStep2() {
                         </div>
                         <div className="space-y-1">
                             <InputField
+                                required
                                 label={t("username")}
                                 id="username"
                                 placeholder="johncooper"
-                                onChange={(e) => handleChange("username", e.target.value)}
                                 value={form.username}
+                                onChange={(e) => handleChange("username", e.target.value)}
                             />
                         </div>
                         <div className="space-y-1 md:col-span-2">
                             <InputField
+                                required
                                 label={t("phone")}
                                 id="phone"
                                 placeholder="+1 (555) 123-4567"
@@ -102,6 +105,7 @@ export default function RegisterStep2() {
                         </div>
                         <div className="space-y-1 md:col-span-2">
                             <InputField
+                                required
                                 label={t("email")}
                                 id="email"
                                 placeholder="john@example.com"
@@ -111,6 +115,7 @@ export default function RegisterStep2() {
                         </div>
                         <div className="space-y-1">
                             <InputField
+                                required
                                 label={t("password")}
                                 id="password"
                                 type="password"
@@ -121,6 +126,7 @@ export default function RegisterStep2() {
                         </div>
                         <div className="space-y-1">
                             <InputField
+                                required
                                 label={t("confirmPassword")}
                                 id="confirmPassword"
                                 type="password"
@@ -138,7 +144,9 @@ export default function RegisterStep2() {
                         <Checkbox
                             id="agree"
                             checked={form.terms}
-                            onCheckedChange={(val) => setForm(prev => ({ ...prev, terms: !!val }))}
+                            onCheckedChange={(val) =>
+                                setForm(prev => ({ ...prev, terms: !!val }))
+                            }
                         />
                         <label htmlFor="agree" className="leading-snug text-left">
                             <Trans
@@ -159,7 +167,11 @@ export default function RegisterStep2() {
                                 <ArrowLeft className="w-4 h-4 mr-1" /> {t("back")}
                             </Link>
                         </Button>
-                        <Button onClick={handleSubmit} disabled={!isFormValid()}>
+                        <Button
+                            onClick={handleSubmit}
+                            disabled={!isFormValid()}
+                            className={!isFormValid() ? "opacity-50 cursor-not-allowed" : ""}
+                        >
                             {t("continue")} <ArrowRight className="w-4 h-4 ml-1" />
                         </Button>
                     </div>

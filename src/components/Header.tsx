@@ -1,33 +1,38 @@
 import type { FC } from "react";
-import { useMemo } from "react"
-import { useTranslation } from 'react-i18next'
-import { useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import LanguageSwitcher from "@/components/LanguageSwitcher"
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuTrigger
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, User, LogOut, Wallet } from "lucide-react";
+import { Menu, User, LogOut, Wallet, Settings } from "lucide-react";
 import type { UserType } from "@/types/user";
 
 const AppHeader: FC = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
     const [isMobile, setIsMobile] = useState(false);
     const [user, setUser] = useState<UserType | null>(null);
 
-    const menuItems = useMemo(() => [
-        { key: "home", label: t("home"), href: "/" },
-        { key: "projects", label: t("projects"), href: "/projects" },
-        { key: "forum", label: t("forum"), href: "/forum" },
-        { key: "contact", label: t("contact"), href: "/contact" },
-        { key: "about", label: t("about"), href: "/about" }
-    ], [t])
+    const [hidden, setHidden] = useState(false);
+    const lastScrollY = useRef(0);
+
+    const menuItems = useMemo(
+        () => [
+            { key: "home", label: t("home"), href: "/" },
+            { key: "projects", label: t("projects"), href: "/projects" },
+            { key: "forum", label: t("forum"), href: "/forum" },
+            { key: "contact", label: t("contact"), href: "/contact" },
+            { key: "about", label: t("about"), href: "/about" },
+        ],
+        [t]
+    );
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -46,13 +51,33 @@ const AppHeader: FC = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+                setHidden(true); // Scroll xuống
+            } else {
+                setHidden(false); // Scroll lên
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const handleLogout = () => {
         localStorage.removeItem("user");
         setUser(null);
     };
 
     return (
-        <header className="w-full bg-white shadow-sm px-6 py-4 flex items-center justify-between">
+        <header
+            className={`w-full bg-white shadow-sm px-6 py-4 flex items-center justify-between transition-transform duration-300 fixed top-0 z-50 ${hidden ? "-translate-y-full" : "translate-y-0"
+                }`}
+        >
             {/* Logo */}
             <Link to="/" className="text-2xl font-bold text-primary">
                 <span className="text-primary">Ecofund</span>X
@@ -81,10 +106,10 @@ const AppHeader: FC = () => {
                         <DropdownMenu>
                             <DropdownMenuTrigger className="flex items-center gap-2 cursor-pointer">
                                 <Avatar>
-                                    <AvatarImage src={user.avatar_url} />
-                                    <AvatarFallback>{user.name[0]}</AvatarFallback>
+                                    <AvatarImage src={user?.avatar || ""} />
+                                    <AvatarFallback>{user.username[0]}</AvatarFallback>
                                 </Avatar>
-                                <span className="font-semibold">{user.name}</span>
+                                <span className="font-semibold">{user.fullname}</span>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
                                 <DropdownMenuItem asChild>
@@ -97,9 +122,12 @@ const AppHeader: FC = () => {
                                         <Wallet className="w-4 h-4" /> {t("wallet")}
                                     </Link>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem
-                                    className="flex items-center gap-2"
-                                >
+                                <DropdownMenuItem asChild>
+                                    <Link to="/settings" className="flex items-center gap-2">
+                                        <Settings className="w-4 h-4" /> {t("settings")}
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem className="flex items-center gap-2">
                                     <button
                                         onClick={handleLogout}
                                         className="flex items-center gap-2 text-sm text-red-600"
@@ -114,7 +142,7 @@ const AppHeader: FC = () => {
                             <Button asChild variant="outline">
                                 <Link to="/register?step=1">{t("register")}</Link>
                             </Button>
-                            <Button asChild >
+                            <Button asChild>
                                 <Link to="/login">{t("login")}</Link>
                             </Button>
                         </>
@@ -162,6 +190,13 @@ const AppHeader: FC = () => {
                                     >
                                         <Wallet className="w-4 h-4" /> {t("wallet")}
                                     </Link>
+                                    <Link
+                                        to="/settings"
+                                        className="flex items-center gap-2 text-sm"
+                                    >
+                                        <Settings className="w-4 h-4" /> {t("settings")}
+                                    </Link>
+
                                     <button
                                         onClick={handleLogout}
                                         className="flex items-center gap-2 text-sm text-red-600"
@@ -174,7 +209,6 @@ const AppHeader: FC = () => {
                                     <Button asChild variant="outline">
                                         <Link to="/register?step=1">{t("register")}</Link>
                                     </Button>
-
                                     <Button asChild>
                                         <Link to="/login">{t("login")}</Link>
                                     </Button>

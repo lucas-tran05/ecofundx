@@ -1,0 +1,94 @@
+[
+    {
+        "id": "1",
+        "fullname": "Nguyễn Văn A",
+        "username": "nguyenvana",
+        "phone": "0912345678",
+        "email": "a@example.com",
+        "password": "123",
+        "confirmPassword": "123",
+        "status": true,
+        "role": 0,
+        "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+        "social": [
+            {
+                "facebook": "https://facebook.com/nguyenvana",
+                "twitter": "https://twitter.com/nguyenvana",
+                "linkedin": "https://linkedin.com/in/nguyenvana"
+            }
+        ],
+        "active": true,
+        "type": "normal",
+        "createdAt": "2023-06-01T00:00:00.000Z",
+        "updatedAt": "2023-06-01T00:00:00.000Z"
+    },
+    {
+        "id": "2",
+        "fullname": "Trần Thị B",
+        "username": "tranthib",
+        "phone": "0987654321",
+        "email": "b.tran@example.com",
+        "password": "secure456",
+        "confirmPassword": "secure456",
+        "status": true,
+        "role": 1,
+        "avatar": "https://randomuser.me/api/portraits/women/2.jpg",
+        "social": [
+            {
+                "facebook": "https://facebook.com/tranthib",
+                "twitter": "",
+                "linkedin": "https://linkedin.com/in/tranthib"
+            }
+        ],
+        "active": false,
+        "type": "google",
+        "createdAt": "2023-06-01T00:00:00.000Z",
+        "updatedAt": "2023-06-01T00:00:00.000Z"
+    },
+    {
+        "id": "3",
+        "fullname": "Lê Văn C",
+        "username": "levanc",
+        "phone": "0933111222",
+        "email": "c.le@example.com",
+        "password": "lepassword",
+        "confirmPassword": "lepassword",
+        "status": false,
+        "role": 2,
+        "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
+        "social": [
+            {
+                "facebook": "",
+                "twitter": "https://twitter.com/levanc",
+                "linkedin": ""
+            }
+        ],
+        "active": true,
+        "type": "github",
+        "createdAt": "2023-06-01T00:00:00.000Z",
+        "updatedAt": "2023-06-01T00:00:00.000Z"
+    },
+    {
+        "id": "4",
+        "fullname": "Admin",
+        "username": "Admin",
+        "phone": "0999999999",
+        "email": "admin@example.com",
+        "password": "admin123",
+        "confirmPassword": "admin123",
+        "status": true,
+        "role": 3,
+        "avatar": "https://randomuser.me/api/portraits/women/4.jpg",
+        "social": [
+            {
+                "facebook": "https://facebook.com/phamthid",
+                "twitter": "https://twitter.com/phamthid",
+                "linkedin": ""
+            }
+        ],
+        "active": true,
+        "type": "admin",
+        "createdAt": "2023-06-01T00:00:00.000Z",
+        "updatedAt": "2023-06-01T00:00:00.000Z"
+    }
+]

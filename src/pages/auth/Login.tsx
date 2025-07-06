@@ -4,29 +4,34 @@ import { Button } from '@/components/ui/button';
 import InputField from '@/components/InputField';
 import { Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-// 👉 Component dùng lại trong file
+import { login } from "@/services/authServices";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
     const { t } = useTranslation();
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const mockData = {
-        name: "Nguyễn Văn A",
-        email: "vana@example.com",
-        role: 1,
-        phone: "0987654321",
-        avatar_url: "https://i.pravatar.cc/150?u=admin01"
-    }
-
-    const handleSubmit = (e: React.FormEvent) => {
+    const [form, setForm] = useState({ email: "", password: ""});
+    const navigate = useNavigate();
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Xử lý đăng nhập ở đây
-        // Giả lập đăng nhập thành công
-        localStorage.setItem('user', JSON.stringify(mockData));
-        window.location.href = '/'; // Chuyển hướng về trang chính
+        const user = await login(form.email, form.password);
+        if (!user) {
+            alert("Sai email hoặc mật khẩu! Thử lại đi bạn êi.");
+            return;
+        }
+        if(user && user.active === false) {
+            navigate("/active?status=pending");
+            return;
+        }
+        const { password, confirmPassword, ...safeUser } = user;
+        localStorage.setItem("user", JSON.stringify(safeUser));
+        if(user.role === 3) {
+            navigate("/admin/dashboard");
+        } else if(user.role === 2) {
+            navigate("/startup/dashboard");
+        }
+        else {
+            navigate("/");
+        }
     };
 
     return (
@@ -41,8 +46,8 @@ export default function LoginPage() {
                         id="email"
                         label="Email"
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="you@example.com"
                     />
 
@@ -50,8 +55,8 @@ export default function LoginPage() {
                         id="password"
                         label={t('password')}
                         type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={form.password}
+                        onChange={(e) => setForm({ ...form, password: e.target.value })}
                         placeholder="••••••••"
                     />
 
