@@ -8,7 +8,7 @@
         "password": "123",
         "confirmPassword": "123",
         "status": true,
-        "role": 0,
+        "role": 1,
         "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
         "social": [
             {

@@ -1,3 +1,9 @@
+import type { Reward } from "./reward.ts";
+
+interface BreakDown{
+    [key: string]: number
+}
+
 export interface Project {
     id: string | number;
     title: string;
@@ -6,5 +12,6 @@ export interface Project {
     raised: number;
     target: number;
     progress: number;
-    color: string;
+    rewards?: Reward[];
+    breakdown?: BreakDown;
 }

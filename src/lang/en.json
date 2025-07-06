@@ -39,8 +39,8 @@
     "logout": "Logout",
     "forum": "Forum",
     "home": "Home",
-    "Settings": "Settings",
-    "Dashboard": "Dashboard",
+    "settings": "Settings",
+    "dashboard": "Dashboard",
     "admin": "Admin",
     "about": "About",
     "contact": "Contact",
@@ -117,5 +117,40 @@
         "easy_register": "Easy Registration",
         "market_access": "Access to wide investment market",
         "support_dev": "Project development support"
-    }
+    },
+    "projectCreator": "Project Creator",
+    "risksAndChallenges": "Risks and Challenges",
+    "fundingAllocation": "Funding Allocation",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "communityDiscussion": "Community Discussion",
+    "supplyChainRisk": "Supply Chain Risk",
+    "environmentalImpact": "Environmental Impact",
+    "socialImpact": "Social Impact",
+    "legalIssues": "Legal Issues",
+    "other": "Other",
+    "transparentReporting": "Transparent Reporting",
+    "monthlyUpdates": "Monthly Updates",
+    "milestoneReview": "Milestone Review",
+    "projectTimeline": "Project Timeline",
+    "fundingBreakdown": {
+        "research": "Research & Development",
+        "manufacturing": "Manufacturing",
+        "installation": "Installation",
+        "marketing": "Marketing"
+    },
+    "projectDetails": {
+        "projectType": "Project Type",
+        "location": "Location",
+        "timeline": "Timeline",
+        "riskLevel": "Risk Level",
+        "progressText": "{{raised}} raised of {{target}} goal",
+        "raised": "Raised",
+        "target": "Target",
+        "backers": "Backers",
+        "daysLeft": "Days Left"
+    },
+    "contributeNow": "Contribute Now",
+    "shareyourthoughts": "Share your thoughts",
+    "postComment": "Post Comment"
+
 }

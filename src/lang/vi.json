@@ -117,5 +117,39 @@
         "easy_register": "Đăng ký dễ dàng",
         "market_access": "Tiếp cận thị trường đầu tư rộng lớn",
         "support_dev": "Hỗ trợ phát triển dự án"
-    }
+    },
+    "projectCreator": "Người tạo dự án",
+    "risksAndChallenges": "Rủi ro và Thách thức",
+    "fundingAllocation": "Phân bổ nguồn vốn",
+    "frequentlyAskedQuestions": "Câu hỏi thường gặp",
+    "communityDiscussion": "Thảo luận cộng đồng",
+    "supplyChainRisk": "Rủi ro chuỗi cung ứng",
+    "environmentalImpact": "Tác động môi trường",
+    "socialImpact": "Tác động xã hội",
+    "legalIssues": "Vấn đề pháp lý",
+    "other": "Khác",
+    "transparentReporting": "Báo cáo minh bạch",
+    "monthlyUpdates": "Cập nhật hàng tháng",
+    "milestoneReview": "Đánh giá mốc tiến độ",
+    "projectTimeline": "Lộ trình dự án",
+    "fundingBreakdown": {
+        "research": "Nghiên cứu & Phát triển",
+        "manufacturing": "Sản xuất",
+        "installation": "Lắp đặt",
+        "marketing": "Tiếp thị"
+    },
+    "projectDetails": {
+        "projectType": "Loại dự án",
+        "location": "Địa điểm",
+        "timeline": "Thời gian thực hiện",
+        "riskLevel": "Mức độ rủi ro",
+        "progressText": "{{raised}} trên tổng {{target}}",
+        "raised": "Đã huy động",
+        "target": "Mục tiêu",
+        "backers": "Nhà đầu tư",
+        "daysLeft": "Ngày còn lại"
+    },
+    "contributeNow": "Đầu tư ngay",
+    "shareyourthoughts": "Chia sẻ với chúng tôi",
+    "postComment": "Đăng tải ngay"
 }

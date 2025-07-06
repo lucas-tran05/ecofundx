@@ -45,7 +45,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
-                            className={`${project.color} h-2 rounded-full transition-all duration-300`}
+                            className={`${project.progress === 100 ? "bg-green-600" : "bg-blue-600"} h-2 rounded-full transition-all duration-300`}
                             style={{ width: `${project.progress}%` }}
                         ></div>
                     </div>

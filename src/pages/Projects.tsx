@@ -12,7 +12,6 @@ const projects = [
             progress: 75,
             raised: 2.5,
             target: 3.2,
-            color: 'bg-green-500'
         },
         {
             id: "2",
@@ -23,7 +22,6 @@ const projects = [
             progress: 60,
             raised: 1.5,
             target: 3.0,
-            color: 'bg-blue-500'
         },
         {
             id: "3",
@@ -34,7 +32,6 @@ const projects = [
             progress: 45,
             raised: 1.0,
             target: 2.0,
-            color: 'bg-green-500'
         }
     ];
 
