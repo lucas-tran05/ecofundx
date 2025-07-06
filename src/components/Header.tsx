@@ -13,7 +13,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { Menu, User, LogOut } from "lucide-react";
+import { Menu, User, LogOut, Wallet } from "lucide-react";
 import type { UserType } from "@/types/user";
 
 const AppHeader: FC = () => {
@@ -65,7 +65,7 @@ const AppHeader: FC = () => {
                         <Link
                             key={item.key}
                             to={item.href}
-                            className="text-sm font-medium hover:text-primary transition"
+                            className="text-sm font-medium text-gray-700 hover:text-emerald-600 hover:underline transition duration-200"
                         >
                             {item.label}
                         </Link>
@@ -90,6 +90,11 @@ const AppHeader: FC = () => {
                                 <DropdownMenuItem asChild>
                                     <Link to="/profile" className="flex items-center gap-2">
                                         <User className="w-4 h-4" /> {t("profile")}
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/wallet" className="flex items-center gap-2">
+                                        <Wallet className="w-4 h-4" /> {t("wallet")}
                                     </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
@@ -151,6 +156,12 @@ const AppHeader: FC = () => {
                                     >
                                         <User className="w-4 h-4" /> {t("profile")}
                                     </Link>
+                                    <Link
+                                        to="/wallet"
+                                        className="flex items-center gap-2 text-sm"
+                                    >
+                                        <Wallet className="w-4 h-4" /> {t("wallet")}
+                                    </Link>
                                     <button
                                         onClick={handleLogout}
                                         className="flex items-center gap-2 text-sm text-red-600"
@@ -163,6 +174,7 @@ const AppHeader: FC = () => {
                                     <Button asChild variant="outline">
                                         <Link to="/register?step=1">{t("register")}</Link>
                                     </Button>
+
                                     <Button asChild>
                                         <Link to="/login">{t("login")}</Link>
                                     </Button>

@@ -39,9 +39,9 @@ const AppFooter: React.FC = () => {
                     <div className="space-y-4">
                         <h5 className="text-lg font-semibold ">{t("footer-legal")}</h5>
                         <ul className="space-y-2  text-sm">
-                            <li><a href="#">{t("terms-of-use")}</a></li>
-                            <li><a href="#">{t("privacy-policy")}</a></li>
-                            <li><a href="#">{t("fundraising-regulations")}</a></li>
+                            <li><Link to="/legal?type=terms">{t("terms-of-use")}</Link></li>
+                            <li><Link to="/legal?type=privacy">{t("privacy-policy")}</Link></li>
+                            <li><Link to="/legal?type=regulations">{t("fundraising-regulations")}</Link></li>
                         </ul>
                     </div>
 

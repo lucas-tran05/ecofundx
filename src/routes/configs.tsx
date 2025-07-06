@@ -12,8 +12,12 @@ const ContactPage = lazy(() => import('@/pages/Contact'))
 const ForumPage = lazy(() => import('@/pages/Forum'))
 const AboutPage = lazy(() => import('@/pages/About'))
 const ProfilePage = lazy(() => import('@/pages/Profile'))
-const ContributorDashboard = lazy(() => import('@/pages/contributor/Dashboard'))
+const ContributorDashboard = lazy(() => import('@/pages/startup/Dashboard'))
 const AdminDashboard = lazy(() => import('@/pages/admin/Dashboard'))
+const ViewProject = lazy(() => import('@/pages/View'))
+const ContributePage = lazy(() => import('@/pages/Contribute'))
+const CreateNewPage = lazy(() => import('@/pages/CreateNew'))
+const LegalPage = lazy(() => import('@/pages/Legal'))
 
 
 // Layouts
@@ -50,11 +54,39 @@ const routes: RouteConfig[] = [
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
+        path: '/legal',
+        component: LegalPage,
+        layout: MainLayout,
+        isPrivate: false,
+        role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
+    },
+    {
         path: '/projects',
         component: ProjectsPage,
         layout: MainLayout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
+    },
+    {
+        path: '/project-view/:id',
+        component: ViewProject,
+        layout: MainLayout,
+        isPrivate: true,
+        role: [Role.User, Role.Contributor, Role.Admin],
+    },
+    {
+        path: '/project-contribute/:id',
+        component: ContributePage,
+        layout: MainLayout,
+        isPrivate: true,
+        role: [Role.User, Role.Contributor, Role.Admin],
+    },
+    {
+        path: '/create-project',
+        component: CreateNewPage,
+        layout: MainLayout,
+        isPrivate: false,
+        role: [Role.Contributor, Role.Admin],
     },
     {
         path: '/contact',
@@ -85,14 +117,14 @@ const routes: RouteConfig[] = [
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
-        path: '/contributor',
+        path: '/startup/',
         component: ContributorDashboard,
         layout: AuthLayout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
     {
-        path: '/contributor/dashboard',
+        path: '/startup/dashboard',
         component: ContributorDashboard,
         layout: AuthLayout,
         isPrivate: true,

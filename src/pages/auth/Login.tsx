@@ -14,12 +14,12 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
 
     const mockData = {
-		name: "Nguyễn Văn A",
-		email: "vana@example.com",
-		role: 1,
-		phone: "0987654321",
-		avatar_url: "https://i.pravatar.cc/150?u=admin01"
-	}
+        name: "Nguyễn Văn A",
+        email: "vana@example.com",
+        role: 1,
+        phone: "0987654321",
+        avatar_url: "https://i.pravatar.cc/150?u=admin01"
+    }
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -61,28 +61,21 @@ export default function LoginPage() {
 
                 </form>
                 <div className="mt-6">
-                    <div className="relative mb-4">
-                        <hr className="border-gray-300" />
-                        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-sm text-gray-500">
-                            {t("or-continue-with")}
-                        </span>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
+                    <div className="text-center text-gray-500 text-sm pb-4">{t('or-continue-with')}</div>
+                    <div className="flex justify-center gap-4">
                         <Button
                             type="button"
                             variant="outline"
-                            className="w-full flex items-center justify-center gap-2"
+                            className=" flex items-center justify-center gap-2"
                             onClick={() => console.log("Login with Google")}
                         >
-                        <img src="/assets/images/google.png" alt="Google Icon" className="w-4 h-4" />
+                            <img src="/assets/images/google.png" alt="Google Icon" className="w-4 h-4" />
                             Google
                         </Button>
-
                         <Button
                             type="button"
                             variant="outline"
-                            className="w-full flex items-center justify-center gap-2"
+                            className=" flex items-center justify-center gap-2"
                             onClick={() => console.log("Login with GitHub")}
                         >
                             <Github className="w-4 h-4" />
@@ -90,7 +83,7 @@ export default function LoginPage() {
                         </Button>
                     </div>
                     <p className="text-sm text-center mt-4">
-                        {t('dont-have-an-account')} <Link to="/register" className="text-primary hover:underline">{t('register-now')}</Link>
+                        {t('dont-have-an-account')} <Link to="/register" className="text-emerald-600 font-medium hover:underline">{t('register-now')}</Link>
                     </p>
                 </div>
 
