@@ -86,7 +86,7 @@ const AppHeader: FC = () => {
                     ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-200/20"
                     : "bg-white/95 backdrop-blur-sm shadow-sm"
                 }
-                min-h-auto md:min-h-20
+                min-h-auto 
             `}
         >
             <div className="container mx-auto px-4 py-4 md:px-6 lg:px-8">

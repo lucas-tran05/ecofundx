@@ -28,7 +28,7 @@ const AppFooter: React.FC = () => {
                                     <img
                                         src="/assets/images/logo_ecofundx.png"
                                         alt="EcoFundX Logo"
-                                        className="w-12 h-12 rounded-lg shadow-lg ring-2 ring-[var(--color-primary-tint)] group-hover:ring-[var(--color-primary-hover)] transition-all duration-300"
+                                        className="w-12 h-12 rounded-lg shadow-lg transition-all duration-300"
                                     />
                                 </div>
                                 <div>
