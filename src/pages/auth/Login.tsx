@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { MouseEvent } from 'react';
 import { Github } from 'lucide-react';
 import InputField from '@/components/InputField';
+import { useNavigate } from 'react-router-dom';
 
 // TypeScript interfaces
 interface FormData {
@@ -18,11 +19,37 @@ interface ButtonProps {
 }
 
 const EcofundLoginPage = () => {
+    const navigate = useNavigate();
     const [form, setForm] = useState<FormData>({ email: '', password: '' });
 
     const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         console.log('Login submitted:', form);
+        const user = {
+            "id": "1",
+            "fullname": "Nguyễn Văn A",
+            "username": "nguyenvana",
+            "phone": "0912345678",
+            "email": "a@example.com",
+            "password": "123",
+            "confirmPassword": "123",
+            "status": true,
+            "role": 1,
+            "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+            "social": [
+                {
+                    "facebook": "https://facebook.com/nguyenvana",
+                    "twitter": "https://twitter.com/nguyenvana",
+                    "linkedin": "https://linkedin.com/in/nguyenvana"
+                }
+            ],
+            "active": true,
+            "type": "normal",
+            "createdAt": "2023-06-01T00:00:00.000Z",
+            "updatedAt": "2023-06-01T00:00:00.000Z"
+        }
+        localStorage.setItem('user', JSON.stringify(user));
+        navigate('/');
     };
 
     // Mock translation function

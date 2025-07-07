@@ -32,8 +32,6 @@ export default function Step3() {
         if (file) {
             const url = URL.createObjectURL(file)
             setAvatar(url)
-
-            // OPTIONAL: bạn có thể upload lên server và lấy URL thật tại đây
         }
     }
 
@@ -64,7 +62,7 @@ export default function Step3() {
 
 
     return (
-        <div className="flex flex-col items-center justify-center w-full max-w-screen-xl px-4  mx-auto space-y-4">
+        <div className="flex flex-col items-center justify-center w-full max-w-screen-xl md:px-4  mx-auto space-y-4">
             {/* Avatar upload */}
             <div className="flex items-center gap-4 text-left">
                 <div className="relative">

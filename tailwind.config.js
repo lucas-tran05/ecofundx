@@ -12,6 +12,20 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			keyframes: {
+				wave: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-9%)' },
+				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-8%)' },
+				},
+			},
+			animation: {
+				wave: 'wave 1.2s ease-in-out infinite',
+				float: 'float 6s ease-in-out infinite',
+			},
 			colors: {
 				ecobg1: 'var(--bg-style-1)',
 				ecobg2: 'var(--bg-style-2)',

@@ -58,7 +58,7 @@ export default function RegisterStep1() {
     }
 
     return (
-        <div className="max-w-xl mx-auto space-y-6 px-16">
+        <div className="max-w-xl mx-auto space-y-6 md:px-16">
             {/* Role Selection */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {accountTypes.map((type) => (

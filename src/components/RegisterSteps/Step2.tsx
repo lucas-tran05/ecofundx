@@ -68,7 +68,7 @@ export default function RegisterStep2() {
     }
 
     return (
-        <div className="flex flex-col w-full items-center justify-center px-4 m-2">
+        <div className="flex flex-col w-full items-center justify-center md:px-4 m-2">
             <div className="grid md:grid-cols-2 gap-4 w-full">
                 <div className="space-y-1">
                     <InputField

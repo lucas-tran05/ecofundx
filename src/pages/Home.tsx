@@ -103,11 +103,43 @@ const Homepage = () => {
                                 <Zap className="w-4 h-4" />
                                 <span className="text-sm font-semibold">Nền tảng đầu tư xanh #1</span>
                             </div>
-                            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                                Đầu tư cho
-                                <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> tương lai </span>
-                                bền vững
+                            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-[1.2] flex flex-wrap gap-x-2 px-2">
+                                {"Đầu tư cho".split(" ").map((word, idx) => (
+                                    <span
+                                        key={idx}
+                                        className="inline-block animate-wave font-bold"
+                                        style={{ animationDelay: `${idx * 0.15}s` }}
+                                    >
+                                        {word}
+                                    </span>
+                                ))}
+                                <span
+                                    className="inline-block animate-wave bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent font-bold leading-[1.3] align-baseline pb-1"
+                                    style={{ animationDelay: `0.6s`, willChange: 'transform' }}
+                                >
+                                    tương
+                                </span>
+
+                                <span
+                                    className="inline-block animate-wave bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent font-bold"
+                                    style={{ animationDelay: `0.75s` }}
+                                >
+                                    lai
+                                </span>
+                                <span
+                                    className="inline-block animate-wave font-bold"
+                                    style={{ animationDelay: `0.6s` }}
+                                >
+                                    bền
+                                </span>
+                                <span
+                                    className="inline-block animate-wave font-bold"
+                                    style={{ animationDelay: `0.15s` }}
+                                >
+                                    vững
+                                </span>
                             </h1>
+
                             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                                 Kết nối nhà đầu tư với các dự án xanh, tạo ra tác động tích cực cho môi trường và xã hội
                             </p>
