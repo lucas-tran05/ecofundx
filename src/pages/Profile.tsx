@@ -25,8 +25,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage: React.FC = () => {
+    const navigate = useNavigate();
     // const { t } = useTranslation();
     const [isEditing, setIsEditing] = useState(false);
     const [showEmail, setShowEmail] = useState(false);
@@ -119,7 +121,7 @@ const ProfilePage: React.FC = () => {
     };
 
     return (
-        <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-8">
+        <div className="pb-8 pt-32">
             <div className="mx-auto px-4 max-w-6xl">
                 {/* Header Section */}
                 <div className="relative mb-8">
@@ -193,12 +195,14 @@ const ProfilePage: React.FC = () => {
                             {/* Action Buttons */}
                             <div className="flex space-x-3">
                                 <Button
-                                    onClick={() => setIsEditing(!isEditing)}
+                                    onClick={() => { navigate(`/settings?tab=profile`) }}
                                     className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg"
                                 >
                                     Edit Profile
                                 </Button>
-                                <Button variant="outline">
+                                <Button variant="outline"
+                                    onClick={() => { navigate(`/settings`) }}
+                                >
                                     Settings
                                 </Button>
                             </div>

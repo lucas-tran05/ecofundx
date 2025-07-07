@@ -1,7 +1,8 @@
 export interface Reward {
-    id: number
+    id: string | number
     title: string
     description: string
-    minimum_amount: number
-    project_id: number
+    amount: number;
+    minimum_amount?: number
+    project_id?: number
 }

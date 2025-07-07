@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { Leaf, TrendingUp, Shield, Rocket, BarChart3, Check, ArrowRight, Play, Zap } from 'lucide-react';
 import { Building2, Users2, DollarSign } from 'lucide-react';
 import ProjectCard from '@/components/ProjectCard';
+import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
+    const navigate = useNavigate();
     const [activeFeature, setActiveFeature] = useState(0);
     const [counters, setCounters] = useState({ projects: 0, investors: 0, funded: 0 });
     const [isVisible, setIsVisible] = useState(false);
@@ -144,7 +146,10 @@ const Homepage = () => {
                                 Kết nối nhà đầu tư với các dự án xanh, tạo ra tác động tích cực cho môi trường và xã hội
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                                <button 
+                                className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                                onClick={() => navigate('/create-project?step=1')}
+                                >
                                     Bắt đầu đầu tư
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
@@ -218,10 +223,10 @@ const Homepage = () => {
             </section>
 
             {/* Role Cards Section */}
-            <section className="py-20 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-gray-50 to-white">
+            <section className="py-20 px-4 sm:px-8 lg:px-16">
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div className="group relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500">
+                        <div className="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500">
                             <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 group-hover:from-green-500/10 group-hover:to-emerald-500/10 transition-all duration-500"></div>
                             <div className="relative z-10 p-8">
                                 <div className="flex items-center gap-4 mb-6">

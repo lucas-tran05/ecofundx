@@ -1,51 +1,107 @@
-import { useParams, useSearchParams } from "react-router-dom";
-import type { Project } from "@/types/project";
+import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
+import Step1 from '@/components/ContributeSteps/Step1';
+import Step2 from '@/components/ContributeSteps/Step2';
+import Step3 from '@/components/ContributeSteps/Step3';
+import Step4 from '@/components/ContributeSteps/Step4';
 
-export default function ProjectContributePage() {
-    const { id } = useParams<{ id: string }>();
+
+const RegisterPage = () => {
+    const { t } = useTranslation();
     const [searchParams] = useSearchParams();
-    const step = searchParams.get("step"); // <-- lấy query string `step`
+    const step = searchParams.get("step") || "1";
 
-    // ⚠ Mock data (sau thay bằng fetch hoặc context)
-    const mockProjects: Project[] = [
-        {
-            id: "1",
-            title: "Hệ thống tái chế thông minh",
-            description: "Ứng dụng AI để tối ưu phân loại rác.",
-            category: "Môi trường",
-            raised: 2,
-            target: 5,
-            progress: 40,
-        },
-        {
-            id: "2",
-            title: "Ứng dụng giáo dục blockchain",
-            description: "Dạy trẻ em kiến thức Web3 từ nhỏ.",
-            category: "Giáo dục",
-            raised: 3,
-            target: 6,
-            progress: 50,
-        },
-    ];
-
-    const project = mockProjects.find((p) => p.id === id);
-
-    if (!project) {
-        return <div className="text-center text-red-600 mt-10">Project không tồn tại</div>;
+    interface StepLabelProps {
+        children: React.ReactNode;
+        active?: boolean;
+        completed?: boolean;
+        index: number;
     }
 
+    const cn = (...classes: (string | undefined | boolean)[]): string => {
+        return classes.filter(Boolean).join(' ');
+    };
+
+    const renderStep = () => {
+        switch (step) {
+            case "1":
+                return <Step1 />;
+            case "2":
+                return <Step2 />;
+            case "3":
+                return <Step3 />;
+            case "4":
+                return <Step4 />;
+            default:
+                return <Step1 />;
+        }
+    };
+
+    const steps = [
+        { index: 1, label: t('rewards') },
+        { index: 2, label: t('info') },
+        { index: 3, label: t('pay') },
+        { index: 4, label: t('review') },
+    ];
+
+    const StepLabel: React.FC<StepLabelProps> = ({ children, active, completed, index }) => {
+        return (
+            <div className="flex items-center space-x-2">
+                <div
+                    className={cn(
+                        "w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 border-2 transition-all duration-200",
+                        completed
+                            ? "bg-emerald-500 text-white border-emerald-500 shadow-lg"
+                            : active
+                                ? "bg-white text-emerald-600 border-emerald-500 shadow-md"
+                                : "bg-gray-100 text-gray-400 border-gray-300"
+                    )}
+                >
+                    {completed ? "✓" : index}
+                </div>
+                <div className={cn("text-sm font-medium transition-colors", active ? "text-emerald-600" : "text-gray-500")}>
+                    {children}
+                </div>
+            </div>
+        );
+    };
+
     return (
-        <div className="max-w-3xl mx-auto p-6">
-            <h1 className="text-2xl font-bold mb-4">Góp vốn: {project.title}</h1>
 
-            <p className="mb-4">Bạn đang ở bước: <strong>{step || "1 (default)"}</strong></p>
+        <div className="max-w-3xl mx-auto pb-16 pt-32">
+            <div className="bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-white/20">
+                {/* Header */}
+                <div className="text-center mb-8">
+                    <h1 className="text-3xl font-bold mb-2">
+                        <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                            {t('create-new-project')}
+                        </span>
+                    </h1>
+                    <p className="text-gray-600 text-sm">{t('create-new-project-des')}</p>
+                </div>
 
-            {/* Tuỳ bước render khác nhau */}
-            {step === "1" && <p>👉 Bước 1: Nhập số tiền bạn muốn góp</p>}
-            {step === "2" && <p>👉 Bước 2: Chọn phương thức thanh toán</p>}
-            {step === "3" && <p>👉 Bước 3: Xác nhận & hoàn tất</p>}
+                {/* Stepper */}
+                <div className="flex justify-center gap-8 mb-8 flex-wrap">
+                    {steps.map(({ index, label }) => (
+                        <StepLabel
+                            key={index}
+                            index={index}
+                            active={step === String(index)}
+                            completed={parseInt(step) > index}
+                        >
+                            {label}
+                        </StepLabel>
+                    ))}
+                </div>
 
-            {/* ... thêm form / logic ở đây tuỳ bước */}
+                {/* Step Content */}
+                <div className="animate-in fade-in duration-300">
+                    {renderStep()}
+                </div>
+            </div>
         </div>
+
     );
-}
+};
+
+export default RegisterPage;

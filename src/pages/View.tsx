@@ -295,7 +295,7 @@ export default function ProjectView() {
                                 </div>
                             </div>
                             <Button className="w-full bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors mb-4"
-                                onClick={() => { navigate(`/project-contribute/${id}`) }}
+                                onClick={() => { navigate(`/project-contribute/${id}?step=1`) }}
                             >
                                 {t('contributeNow')}
                             </Button>

@@ -87,7 +87,7 @@ const routes: RouteConfig[] = [
         path: '/create-project',
         component: CreateNewPage,
         layout: MainLayout,
-        isPrivate: false,
+        isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
     {
@@ -114,6 +114,13 @@ const routes: RouteConfig[] = [
     {
         path: '/forum',
         component: ForumPage,
+        layout: MainLayout,
+        isPrivate: true,
+        role: [Role.User, Role.Contributor, Role.Admin],
+    },
+    {
+        path: '/post',
+        component: ContributePage,
         layout: MainLayout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],

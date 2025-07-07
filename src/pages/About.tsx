@@ -65,9 +65,9 @@ const AboutUsPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div>
             {/* Hero Section */}
-            <div className="bg-gradient-to-br from-green-600 to-blue-600 text-white py-20">
+            <div className="bg-gradient-to-br from-green-600 to-blue-600 text-white pb-24 pt-48">
                 <div className="max-w-6xl mx-auto px-4 text-center">
                     <h1 className="text-5xl font-bold mb-6">
                         Về EcoFundX

@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export default function SettingsPage() {
-    const [activeTab, setActiveTab] = useState('profile');
+    const [activeTab, setActiveTab] = useState('notifications');
     const [notifications, setNotifications] = useState({
         email: true,
         push: false,
@@ -27,8 +27,8 @@ export default function SettingsPage() {
     });
 
     const settingsTabs = [
-        { id: 'profile', label: 'Hồ sơ', icon: <User size={20} /> },
         { id: 'notifications', label: 'Thông báo', icon: <Bell size={20} /> },
+        { id: 'profile', label: 'Hồ sơ', icon: <User size={20} /> },
         { id: 'security', label: 'Bảo mật', icon: <Shield size={20} /> },
         { id: 'language', label: 'Ngôn ngữ', icon: <Globe size={20} /> },
         { id: 'appearance', label: 'Giao diện', icon: <Palette size={20} /> },
@@ -39,64 +39,6 @@ export default function SettingsPage() {
 
     const renderTabContent = () => {
         switch (activeTab) {
-            case 'profile':
-                return (
-                    <div className="space-y-6">
-                        <div className="flex items-center space-x-4 mb-6">
-                            <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
-                                <User size={32} className="text-white" />
-                            </div>
-                            <div>
-                                <h2 className="text-2xl font-bold text-gray-900">Thông tin cá nhân</h2>
-                                <p className="text-gray-600">Cập nhật thông tin hồ sơ của bạn</p>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
-                                <input
-                                    type="text"
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                                    placeholder="Nguyễn Văn A"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                <input
-                                    type="email"
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                                    placeholder="example@email.com"
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Số điện thoại</label>
-                            <input
-                                type="tel"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                                placeholder="0123456789"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Giới thiệu</label>
-                            <textarea
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                                rows={4}
-                                placeholder="Viết vài dòng về bản thân..."
-                            />
-                        </div>
-
-                        <div className="flex justify-end">
-                            <button className="flex items-center space-x-2 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
-                                <Save size={16} />
-                                <span>Lưu thay đổi</span>
-                            </button>
-                        </div>
-                    </div>
-                );
 
             case 'notifications':
                 return (
@@ -178,6 +120,64 @@ export default function SettingsPage() {
                                     )} />
                                 </button>
                             </div>
+                        </div>
+                    </div>
+                );
+            case 'profile':
+                return (
+                    <div className="space-y-6">
+                        <div className="flex items-center space-x-4 mb-6">
+                            <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
+                                <User size={32} className="text-white" />
+                            </div>
+                            <div>
+                                <h2 className="text-2xl font-bold text-gray-900">Thông tin cá nhân</h2>
+                                <p className="text-gray-600">Cập nhật thông tin hồ sơ của bạn</p>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
+                                <input
+                                    type="text"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                    placeholder="Nguyễn Văn A"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input
+                                    type="email"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                    placeholder="example@email.com"
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Số điện thoại</label>
+                            <input
+                                type="tel"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="0123456789"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Giới thiệu</label>
+                            <textarea
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                rows={4}
+                                placeholder="Viết vài dòng về bản thân..."
+                            />
+                        </div>
+
+                        <div className="flex justify-end">
+                            <button className="flex items-center space-x-2 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                                <Save size={16} />
+                                <span>Lưu thay đổi</span>
+                            </button>
                         </div>
                     </div>
                 );
@@ -418,7 +418,7 @@ export default function SettingsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+        <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-32">
             {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
                 <div className="absolute top-20 left-20 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>

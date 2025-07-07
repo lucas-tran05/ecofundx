@@ -62,7 +62,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="bg-gray-50 py-12 px-4">
+        <div className="py-32 px-4">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -76,7 +76,7 @@ const ContactPage = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Quick Contact Section */}
                     <div className="lg:col-span-1">
-                        <div className="bg-white rounded-lg shadow-md p-6">
+                        <div className="bg-white/80 backdrop-blur-lg rounded-lg shadow-md p-6">
                             <h2 className="text-xl font-semibold text-gray-900 mb-6">Quick Contact</h2>
 
                             <div className="space-y-6">
@@ -115,7 +115,7 @@ const ContactPage = () => {
 
                     {/* Contact Form Section */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white rounded-lg shadow-md p-6">
+                        <div className="bg-white/80 backdrop-blur-lg rounded-lg shadow-md p-6">
                             <div className="space-y-6">
                                 {/* Full Name and Email */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
