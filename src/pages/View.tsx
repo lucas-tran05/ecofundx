@@ -120,9 +120,9 @@ export default function ProjectView() {
                     <div className="flex items-center gap-2 text-sm text-gray-500">
                         <span>Trang chủ</span>
                         <span>/</span>
-                        <span>Forum</span>
+                        <span>Projects</span>
                         <span>/</span>
-                        <span className="text-emerald-600">Chi tiết bài viết</span>
+                        <span className="text-emerald-600">Project view</span>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
