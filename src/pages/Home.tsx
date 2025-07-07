@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Leaf, TrendingUp, Shield, Rocket, BarChart3, Check, ArrowRight, Play, Star, Users, Zap } from 'lucide-react';
+import { Leaf, TrendingUp, Shield, Rocket, BarChart3, Check, ArrowRight, Play, Zap } from 'lucide-react';
 import { Building2, Users2, DollarSign } from 'lucide-react';
+import ProjectCard from '@/components/ProjectCard';
 
 const Homepage = () => {
     const [activeFeature, setActiveFeature] = useState(0);
@@ -86,63 +87,6 @@ const Homepage = () => {
         "Tiếp cận thị trường đầu tư rộng lớn",
         "Hỗ trợ phát triển dự án chuyên nghiệp"
     ];
-
-    interface Project {
-        id: string;
-        title: string;
-        description: string;
-        category: string;
-        progress: number;
-        raised: number;
-        target: number;
-        gradient: string;
-        investors: number;
-        rating: number;
-    }
-
-    const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
-        <div className={`group relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}
-            style={{ animationDelay: `${index * 200}ms` }}>
-            <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-sm font-semibold text-gray-800">{project.category}</span>
-                </div>
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span className="text-sm font-semibold text-gray-800">{project.rating}</span>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-full h-2 overflow-hidden">
-                        <div
-                            className="h-full bg-gradient-to-r from-green-400 to-emerald-600 transition-all duration-1000"
-                            style={{ width: `${project.progress}%` }}
-                        ></div>
-                    </div>
-                </div>
-            </div>
-            <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
-                    {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
-                <div className="flex justify-between items-center mb-4">
-                    <div>
-                        <span className="text-2xl font-bold text-green-600">${project.raised}M</span>
-                        <span className="text-gray-500 ml-1">/ ${project.target}M</span>
-                    </div>
-                    <div className="flex items-center gap-1 text-gray-500">
-                        <Users className="w-4 h-4" />
-                        <span className="text-sm">{project.investors}</span>
-                    </div>
-                </div>
-                <button className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-                    Đầu tư ngay
-                    <ArrowRight className="w-4 h-4" />
-                </button>
-            </div>
-        </div>
-    );
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden">
@@ -312,8 +256,8 @@ const Homepage = () => {
                         <p className="text-xl text-gray-600">Khám phá các dự án xanh đang thu hút đầu tư</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project, index) => (
-                            <ProjectCard key={project.id} project={project} index={index} />
+                        {projects.map((project) => (
+                            <ProjectCard key={project.id} project={project} />
                         ))}
                     </div>
                 </div>

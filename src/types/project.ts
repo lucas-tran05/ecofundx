@@ -5,7 +5,7 @@ interface BreakDown{
 }
 
 export interface Project {
-    id: string | number;
+    id: string;
     title: string;
     description: string;
     category: string;

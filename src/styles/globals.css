@@ -1,2 +1,79 @@
 :root {
+    --bg-style-1: linear-gradient(to bottom, #c2e59c, #64b3f4);
+    --bg-style-2: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+    --bg-style-3: linear-gradient(to bottom, #c2e59c, #64b3f4);
+    --text-gradient:  linear-gradient(to right, #4B9330, #6DBE45);
+    --background-image: linear-gradient(to right, #4B9330, #6DBE45);
+
+    /* ===== PRIMARY (Xanh lá tự nhiên) ===== */
+    --color-primary-1: rgb(22 163 74);
+    /* base */
+    --color-primary-hover: rgb(25, 180, 79);
+    /* hover */
+    --color-primary-active: #4B9330;
+    /* click */
+
+    --color-primary-light: #A4D96C;
+    --color-primary-tint: #D7F2BA;
+
+    /* ===== SECONDARY (Xanh dương nước trời) ===== */
+    --color-secondary-1: #A0D8EF;
+    --color-secondary-hover: #8FCFE9;
+    --color-secondary-active: #79C2DD;
+
+    --color-secondary-light: #D2EFF9;
+    --color-secondary-tint: #EDF9FD;
+
+    /* ===== TERTIARY (Vàng ánh sáng) ===== */
+    --color-tertiary-1: #F4E285;
+    --color-tertiary-hover: #EFD76E;
+    --color-tertiary-active: #E6C954;
+
+    --color-tertiary-light: #F9EDB7;
+    --color-tertiary-tint: #FFFAE5;
+
+    /* ===== NEUTRALS ===== */
+    --color-neutral-dark: #5C4033;
+    --color-neutral-hover: #493529;
+    --color-neutral-light: #F5F5F0;
+    --color-neutral-light-hover: #EBEBE5;
+
+    /* ===== TEXT ===== */
+    --text-primary: #222;
+    --text-primary-hover: #000;
+    --text-accent: #3A5A40;
+    --text-accent-hover: #2B4B34;
+    --text-muted: #666;
+    --text-on-primary: #fff;
+
+    /* Footer Colors blur */
+    --bg-main-gradient: linear-gradient(to right, rgb(5 150 105 / 0.05), rgb(13 148 136 / 0.05));
+    --bg-emerald-circle: rgb(16 185 129 / 0.05);
+    --bg-teal-circle: rgb(20 184 166 / 0.05);
+}
+
+[data-theme="dark"] {
+    --bg-style-1: linear-gradient(to bottom, #c2e59c, #64b3f4);
+    --bg-style-2: linear-gradient(to bottom, #c2e59c, #64b3f4);
+    --bg-style-3: linear-gradient(to bottom, #c2e59c, #64b3f4);
+
+    --color-primary-1: #c2e59c;
+    --color-primary-2: #64b3f4;
+    --color-primary-3: #c2e59c;
+    --color-primary-4: #64b3f4;
+
+    --color-secondary-1: #c2e59c;
+    --color-secondary-2: #64b3f4;
+    --color-secondary-3: #c2e59c;
+    --color-secondary-4: #64b3f4;
+
+    --color-tertiary-1: #c2e59c;
+    --color-tertiary-2: #64b3f4;
+    --color-tertiary-3: #c2e59c;
+    --color-tertiary-4: #64b3f4;
+
+    --text-primary-1: #c2e59c;
+    --text-primary-2: #64b3f4;
+    --text-primary-3: #c2e59c;
+    --text-primary-4: #64b3f4;
 }

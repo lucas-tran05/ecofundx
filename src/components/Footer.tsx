@@ -11,12 +11,12 @@ const AppFooter: React.FC = () => {
     };
 
     return (
-        <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+        <footer className="relative bg-[image:var(--bg-style-2)] text-[var(--text-on-primary)] overflow-hidden md:px-16">
             {/* Background decorative elements */}
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 to-teal-600/5"></div>
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl"></div>
-            
+            <div className="absolute inset-0 bg-[image:var(--bg-main-gradient)]"></div>
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--bg-emerald-circle)] rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--bg-teal-circle)] rounded-full blur-3xl"></div>
+
             <div className="relative z-10 container mx-auto px-6 py-16">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -28,16 +28,15 @@ const AppFooter: React.FC = () => {
                                     <img
                                         src="/assets/images/logo_ecofundx.png"
                                         alt="EcoFundX Logo"
-                                        className="w-12 h-12 rounded-lg shadow-lg ring-2 ring-emerald-500/20 group-hover:ring-emerald-500/40 transition-all duration-300"
+                                        className="w-12 h-12 rounded-lg shadow-lg ring-2 ring-[var(--color-primary-tint)] group-hover:ring-[var(--color-primary-hover)] transition-all duration-300"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
                                 <div>
                                     <h4 className="text-2xl font-bold">
-                                        <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                                        <span className="bg-[image:var(--text-gradient)] bg-clip-text text-transparent">
                                             EcoFund
                                         </span>
-                                        <span className="text-white">X</span>
+                                        <span className="text-[var(--text-on-primary)]">X</span>
                                     </h4>
                                 </div>
                             </div>
@@ -45,17 +44,17 @@ const AppFooter: React.FC = () => {
                         <p className="text-gray-300 text-sm leading-relaxed">
                             {t("footer-description")}
                         </p>
-                        <div className="flex items-center space-x-2 text-emerald-400">
-                            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                            <span className="text-sm font-medium">Trusted by 10,000+ users</span>
+                        <div className="flex items-center space-x-2 text-[var(--color-primary-1)]">
+                            <div className="w-2 h-2 bg-[var(--color-primary-1)] rounded-full animate-pulse"></div>
+                            <span className="text-sm font-medium">{t('footer-glold')}</span>
                         </div>
                     </div>
 
                     {/* Quick Links */}
                     <div className="space-y-6">
-                        <h5 className="text-lg font-semibold text-white relative">
+                        <h5 className="text-lg font-semibold text-[var(--text-on-primary)] relative">
                             {t("footer-links")}
-                            <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full"></div>
+                            <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[var(--color-primary-1)] rounded-full"></div>
                         </h5>
                         <ul className="space-y-3">
                             {[
@@ -67,9 +66,9 @@ const AppFooter: React.FC = () => {
                                 <li key={link.to}>
                                     <Link
                                         to={link.to}
-                                        className="text-gray-300 hover:text-emerald-400 text-sm transition-all duration-300 group flex items-center space-x-2"
+                                        className="text-[var(--text-on-primary)] hover:text-[var(--color-primary-light)] text-sm transition-all duration-300 group flex items-center space-x-2"
                                     >
-                                        <span className="w-1 h-1 bg-gray-500 rounded-full group-hover:bg-emerald-400 transition-colors duration-300"></span>
+                                        <span className="w-1 h-1 bg-gray-500 rounded-full group-hover:bg-[var(--color-primary-1)] transition-colors duration-300"></span>
                                         <span>{link.label}</span>
                                     </Link>
                                 </li>
@@ -79,9 +78,9 @@ const AppFooter: React.FC = () => {
 
                     {/* Legal */}
                     <div className="space-y-6">
-                        <h5 className="text-lg font-semibold text-white relative">
+                        <h5 className="text-lg font-semibold text-[var(--text-on-primary)] relative">
                             {t("footer-legal")}
-                            <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full"></div>
+                            <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[var(--color-primary-1)] rounded-full"></div>
                         </h5>
                         <ul className="space-y-3">
                             {[
@@ -92,9 +91,9 @@ const AppFooter: React.FC = () => {
                                 <li key={link.to}>
                                     <Link
                                         to={link.to}
-                                        className="text-gray-300 hover:text-emerald-400 text-sm transition-all duration-300 group flex items-center space-x-2"
+                                        className="text-[var(--text-on-primary)] hover:text-[var(--color-primary-light)] text-sm transition-all duration-300 group flex items-center space-x-2"
                                     >
-                                        <span className="w-1 h-1 bg-gray-500 rounded-full group-hover:bg-emerald-400 transition-colors duration-300"></span>
+                                        <span className="w-1 h-1 bg-gray-500 rounded-full group-hover:bg-[var(--color-primary-1)] transition-colors duration-300"></span>
                                         <span>{link.label}</span>
                                     </Link>
                                 </li>
@@ -104,23 +103,23 @@ const AppFooter: React.FC = () => {
 
                     {/* Contact & Social */}
                     <div className="space-y-6">
-                        <h5 className="text-lg font-semibold text-white relative">
+                        <h5 className="text-lg font-semibold text-[var(--text-on-primary)] relative">
                             {t("footer-contact")}
-                            <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full"></div>
+                            <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[var(--color-primary-1)] rounded-full"></div>
                         </h5>
-                        
+
                         {/* Contact Info */}
                         <div className="space-y-3">
-                            <div className="flex items-center space-x-3 text-sm text-gray-300">
-                                <Mail className="w-4 h-4 text-emerald-400" />
+                            <div className="flex items-center space-x-3 text-sm text-[var(--text-on-primary)]">
+                                <Mail className="w-4 h-4 text-[var(--color-primary-1)]" />
                                 <span>support@ecofundx.com</span>
                             </div>
-                            <div className="flex items-center space-x-3 text-sm text-gray-300">
-                                <Phone className="w-4 h-4 text-emerald-400" />
+                            <div className="flex items-center space-x-3 text-sm text-[var(--text-on-primary)]">
+                                <Phone className="w-4 h-4 text-[var(--color-primary-1)]" />
                                 <span>+84 123 456 789</span>
                             </div>
-                            <div className="flex items-center space-x-3 text-sm text-gray-300">
-                                <MapPin className="w-4 h-4 text-emerald-400" />
+                            <div className="flex items-center space-x-3 text-sm text-[var(--text-on-primary)]">
+                                <MapPin className="w-4 h-4 text-[var(--color-primary-1)]" />
                                 <span>Hanoi, Vietnam</span>
                             </div>
                         </div>
@@ -128,19 +127,18 @@ const AppFooter: React.FC = () => {
                         {/* Social Media */}
                         <div className="flex space-x-4">
                             {[
-                                { Icon: Facebook, href: "#", color: "hover:text-blue-400" },
-                                { Icon: Twitter, href: "#", color: "hover:text-sky-400" },
-                                { Icon: Linkedin, href: "#", color: "hover:text-blue-600" },
-                            ].map(({ Icon, href, color }, index) => (
+                                { Icon: Facebook, href: "#" },
+                                { Icon: Twitter, href: "#" },
+                                { Icon: Linkedin, href: "#" },
+                            ].map(({ Icon, href }, index) => (
                                 <a
                                     key={index}
                                     href={href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`group relative p-3 bg-gray-800 rounded-lg transition-all duration-300 hover:bg-gray-700 hover:scale-110 ${color}`}
+                                    className={`group relative p-3 bg-gray-800 rounded-lg transition-all duration-300 hover:bg-gray-700 hover:scale-110 hover:text-[var(--color-primary-1)]`}
                                 >
-                                    <Icon className="w-5 h-5 text-gray-400 group-hover:text-current transition-colors duration-300" />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <Icon className="w-5 h-5 text-[var(--text-on-primary)] group-hover:text-current transition-colors duration-300" />
                                 </a>
                             ))}
                         </div>
@@ -150,17 +148,17 @@ const AppFooter: React.FC = () => {
                 {/* Bottom Section */}
                 <div className="border-t border-gray-700 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <p className="text-gray-400 text-sm text-center md:text-left">
+                        <p className="text-[var(--text-muted)] text-sm text-center md:text-left">
                             © {new Date().getFullYear()} EcoFundX. {t("footer-copyright")}
                         </p>
-                        
+
                         {/* Back to Top */}
                         <button
                             onClick={scrollToTop}
-                            className="group flex items-center space-x-2 text-gray-400 hover:text-emerald-400 transition-all duration-300 transform hover:scale-105"
+                            className="group flex items-center space-x-2 text-[var(--text-muted)] hover:text-[var(--color-primary-active)] transition-all duration-300 transform hover:scale-105"
                         >
                             <span className="text-sm">Back to top</span>
-                            <div className="p-2 bg-gray-800 rounded-full group-hover:bg-emerald-600 transition-all duration-300">
+                            <div className="p-2 bg-gray-800 rounded-full group-hover:bg-[var(--color-primary-1)] transition-all duration-300">
                                 <ArrowUp className="w-4 h-4" />
                             </div>
                         </button>

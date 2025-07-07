@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { CheckCircle, UserPlus, Github } from "lucide-react"
-import { Link, useNavigate } from "react-router-dom"
+import {  useNavigate } from "react-router-dom"
 
 export default function RegisterStep1() {
     const { t } = useTranslation()
@@ -58,7 +58,7 @@ export default function RegisterStep1() {
     }
 
     return (
-        <div className="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-8 space-y-6 border">
+        <div className="max-w-xl mx-auto space-y-6 px-16">
             {/* Role Selection */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {accountTypes.map((type) => (
@@ -109,14 +109,6 @@ export default function RegisterStep1() {
                     <Github className="w-4 h-4" />
                     GitHub
                 </Button>
-            </div>
-
-            {/* Already have account */}
-            <div className="text-center text-sm">
-                {t('already-have-an-account')}{" "}
-                <Link to="/login" className="text-emerald-600 font-medium hover:underline">
-                    {t('log-in-here')}
-                </Link>
             </div>
         </div>
     )

@@ -4,7 +4,6 @@ import { Camera, Trash2 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { useTranslation } from "react-i18next"
 import { register } from "@/services/authServices"
@@ -65,82 +64,78 @@ export default function Step3() {
 
 
     return (
-        <div className="flex items-center justify-center w-full max-w-screen-xl px-4 bg-white mx-auto">
-            <Card className="w-full max-w-2xl p-8">
-                <CardContent className="space-y-6">
-                    {/* Avatar upload */}
-                    <div className="flex items-center gap-4">
-                        <div className="relative">
-                            <img
-                                src={avatar || "/assets/images/default-avatar.png"}
-                                alt="avatar"
-                                className="w-20 h-20 rounded-full object-cover border"
-                            />
-                            <label className="absolute bottom-0 right-0 bg-white rounded-full p-1 shadow cursor-pointer">
-                                <Camera className="w-4 h-4 text-green-600" />
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    className="hidden"
-                                    onChange={handleFileChange}
-                                />
-                            </label>
-                        </div>
-                        {avatar && (
-                            <Button
-                                variant="ghost"
-                                className="text-red-500 p-0 h-auto"
-                                onClick={() => setAvatar(null)}
-                            >
-                                <Trash2 className="w-4 h-4 mr-1" /> {t('remove-avatar')}
-                            </Button>
-                        )}
-                    </div>
-
-                    {/* Bio */}
-                    <div className="space-y-1 text-left">
-                        <Label htmlFor="bio">{t("bio")}</Label>
-                        <Textarea
-                            id="bio"
-                            placeholder={t("bio-placeholder")}
-                            value={bio}
-                            onChange={(e) => setBio(e.target.value)}
+        <div className="flex flex-col items-center justify-center w-full max-w-screen-xl px-4  mx-auto space-y-4">
+            {/* Avatar upload */}
+            <div className="flex items-center gap-4 text-left">
+                <div className="relative">
+                    <img
+                        src={avatar || "/assets/images/default-avatar.png"}
+                        alt="avatar"
+                        className="w-20 h-20 rounded-full object-cover border"
+                    />
+                    <label className="absolute bottom-0 right-0  rounded-full p-1 shadow cursor-pointer">
+                        <Camera className="w-4 h-4 text-green-600" />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={handleFileChange}
                         />
-                    </div>
+                    </label>
+                </div>
+                {avatar && (
+                    <Button
+                        variant="ghost"
+                        className="text-red-500 p-0 h-auto"
+                        onClick={() => setAvatar(null)}
+                    >
+                        <Trash2 className="w-4 h-4 mr-1" /> {t('remove-avatar')}
+                    </Button>
+                )}
+            </div>
 
-                    {/* Social Links */}
-                    <div className="space-y-1 text-left">
-                        <Label>{t('social-media-links')}</Label>
-                        <div className="space-y-3 mt-2">
-                            <Input
-                                placeholder={t('facebook-profile-url')}
-                                value={links.facebook}
-                                onChange={(e) => setLinks({ ...links, facebook: e.target.value })}
-                            />
-                            <Input
-                                placeholder={t('twitter-profile-url')}
-                                value={links.twitter}
-                                onChange={(e) => setLinks({ ...links, twitter: e.target.value })}
-                            />
-                            <Input
-                                placeholder={t('linkedin-profile-url')}
-                                value={links.linkedin}
-                                onChange={(e) => setLinks({ ...links, linkedin: e.target.value })}
-                            />
-                        </div>
-                    </div>
+            {/* Bio */}
+            <div className="space-y-1 text-left w-full">
+                <Label htmlFor="bio">{t("bio")}</Label>
+                <Textarea
+                    id="bio"
+                    placeholder={t("bio-placeholder")}
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                />
+            </div>
 
-                    {/* Continue */}
-                    <div className="pt-4 flex justify-between gap-2">
-                        <Button variant="outline" onClick={() => navigate("/register?step=2")}>
-                            ← {t('back')}
-                        </Button>
-                        <Button onClick={handleSubmit}>
-                            {t('submit')} →
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
+            {/* Social Links */}
+            <div className="space-y-1 text-left w-full">
+                <Label>{t('social-media-links')}</Label>
+                <div className="space-y-3 mt-2">
+                    <Input
+                        placeholder={t('facebook-profile-url')}
+                        value={links.facebook}
+                        onChange={(e) => setLinks({ ...links, facebook: e.target.value })}
+                    />
+                    <Input
+                        placeholder={t('twitter-profile-url')}
+                        value={links.twitter}
+                        onChange={(e) => setLinks({ ...links, twitter: e.target.value })}
+                    />
+                    <Input
+                        placeholder={t('linkedin-profile-url')}
+                        value={links.linkedin}
+                        onChange={(e) => setLinks({ ...links, linkedin: e.target.value })}
+                    />
+                </div>
+            </div>
+
+            {/* Continue */}
+            <div className="pt-4 flex justify-between gap-2">
+                <Button variant="outline" onClick={() => navigate("/register?step=2")}>
+                    ← {t('back')}
+                </Button>
+                <Button onClick={handleSubmit}>
+                    {t('submit')} →
+                </Button>
+            </div>
         </div>
     )
 }

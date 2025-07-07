@@ -97,13 +97,13 @@ const AppHeader: FC = () => {
                         className="group flex items-center space-x-2 text-2xl font-bold transition-all duration-300"
                     >
                         <div className="relative">
-                            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent">
+                            <span className="bg-[image:var(--text-gradient)] bg-clip-text text-transparent">
                                 Ecofund
                             </span>
-                            <span className="text-gray-800 group-hover:text-emerald-600 transition-colors duration-300">
+                            <span className="text-[var(--text-primary)] transition-colors duration-300">
                                 X
                             </span>
-                            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transition-all duration-300 group-hover:w-full"></div>
+                            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--color-primary-1)] transition-all duration-300 group-hover:w-full"></div>
                         </div>
                     </Link>
 
@@ -114,10 +114,9 @@ const AppHeader: FC = () => {
                                 <Link
                                     key={item.key}
                                     to={item.href}
-                                    className="group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-600 transition-all duration-300 rounded-lg hover:bg-emerald-50"
+                                    className="group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-[var(--color-primary-active)] hover:scale-110 transition-all duration-300 rounded-lg hover:bg-emerald-50"
                                 >
                                     {item.label}
-                                    <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                                 </Link>
                             ))}
                         </nav>
@@ -132,10 +131,10 @@ const AppHeader: FC = () => {
 
                             {user ? (
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-all duration-200 group">
-                                        <Avatar className="ring-2 ring-emerald-200 ring-offset-2 transition-all duration-300 group-hover:ring-emerald-400">
+                                    <DropdownMenuTrigger className="flex items-center space-x-3 p-2 rounded-lg transition-all duration-200 group">
+                                        <Avatar className="ring-2 ring-[var(--color-primary-1)] ring-offset-2 transition-all duration-300 group-hover:ring-[var(--color-primary-active)]">
                                             <AvatarImage src={user?.avatar || ""} />
-                                            <AvatarFallback className="bg-gradient-to-br from-emerald-400 to-teal-500 text-white">
+                                            <AvatarFallback className="bg-[image:var(--text-gradient)] text-[var(--text-on-primary)]">
                                                 {user.username[0]}
                                             </AvatarFallback>
                                         </Avatar>
@@ -145,24 +144,21 @@ const AppHeader: FC = () => {
                                         </div>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end" className="w-48 mt-2 bg-white/95 backdrop-blur-xl border border-gray-200/20 shadow-xl">
-                                        <DropdownMenuItem asChild>
-                                            <Link to="/profile" className="flex items-center space-x-2 hover:bg-emerald-50 transition-colors duration-200">
-                                                <User className="w-4 h-4 text-emerald-600" />
-                                                <span>{t("profile")}</span>
-                                            </Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem asChild>
-                                            <Link to="/wallet" className="flex items-center space-x-2 hover:bg-emerald-50 transition-colors duration-200">
-                                                <Wallet className="w-4 h-4 text-emerald-600" />
-                                                <span>{t("wallet")}</span>
-                                            </Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem asChild>
-                                            <Link to="/settings" className="flex items-center space-x-2 hover:bg-emerald-50 transition-colors duration-200">
-                                                <Settings className="w-4 h-4 text-emerald-600" />
-                                                <span>{t("settings")}</span>
-                                            </Link>
-                                        </DropdownMenuItem>
+                                        {[
+                                            { to: "/profile", icon: User, text: t("profile") },
+                                            { to: "/wallet", icon: Wallet, text: t("wallet") },
+                                            { to: "/settings", icon: Settings, text: t("settings") }
+                                        ].map(({ to, icon: Icon, text }, index) => (
+                                            <DropdownMenuItem asChild key={index}>
+                                                <Link
+                                                    to={to}
+                                                    className="flex items-center space-x-2 hover:bg-emerald-50 transition-colors duration-200"
+                                                >
+                                                    <Icon className="w-4 h-4 text-emerald-600" />
+                                                    <span>{text}</span>
+                                                </Link>
+                                            </DropdownMenuItem>
+                                        ))}
                                         <DropdownMenuItem className="hover:bg-red-50 transition-colors duration-200">
                                             <button
                                                 onClick={handleLogout}
@@ -179,13 +175,13 @@ const AppHeader: FC = () => {
                                     <Button
                                         asChild
                                         variant="outline"
-                                        className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300"
+                                        className="border-[var(--color-primary-1)] text-[var(--color-primary-active)] hover:bg-[var(--color-primary-tint)] hover:border-[var(--color-primary-active)]: transition-all duration-300"
                                     >
                                         <Link to="/register?step=1">{t("register")}</Link>
                                     </Button>
                                     <Button
                                         asChild
-                                        className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                                        className="bg-[image:var(--text-gradient)] text-[var(--text-on-primary)] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                                     >
                                         <Link to="/login">{t("login")}</Link>
                                     </Button>

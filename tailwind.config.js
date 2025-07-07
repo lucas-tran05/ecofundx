@@ -13,6 +13,15 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			colors: {
+				ecobg1: 'var(--bg-style-1)',
+				ecobg2: 'var(--bg-style-2)',
+				ecobg3: 'var(--bg-style-3)',
+
+				ecoclp1: 'var(--color-primary-1)',
+				ecoclp2: 'var(--color-primary-2)',
+				ecoclp3: 'var(--color-primary-3)',
+
+
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
