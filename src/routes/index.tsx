@@ -1,20 +1,22 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import { Suspense } from 'react'
 import { isAuthenticated, getUserRole } from '@/utils/auth'
 import ForbiddenPage from '@/pages/Forbidden'
 import NotFoundPage from '@/pages/NotFound'
 import routes from './configs'
 import type { Role } from '@/utils/auth'
+import LoadingUI from '@/components/Loading'
 
 export default function AppRoutes() {
-    const { t } = useTranslation()
     const location = useLocation()
     const authed = isAuthenticated()
     const userRole = getUserRole()
 
     return (
-        <Suspense fallback={<div className="p-4 text-center text-gray-500 animate-pulse">{t('loading')}...</div>}>
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen text-gray-500">
+            <LoadingUI />
+        </div>
+        }>
             <Routes>
                 {routes.map(({ path, component: Component, layout: Layout, isPrivate, role }) => {
                     let content;

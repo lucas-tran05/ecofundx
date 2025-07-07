@@ -100,8 +100,15 @@ export default function ProjectView() {
 
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+            {/* Animated Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+                <div className="absolute top-20 left-20 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
+                <div className="absolute top-40 right-32 w-24 h-24 bg-emerald-300 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+                <div className="absolute bottom-32 left-1/4 w-20 h-20 bg-teal-200 rounded-full opacity-25 animate-bounce" style={{ animationDelay: '4s', animationDuration: '7s' }}></div>
+                <div className="absolute bottom-20 right-20 w-28 h-28 bg-green-300 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
+            </div>
+            <div className="max-w-6xl mx-auto px-4 py-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-8">
@@ -305,6 +312,22 @@ export default function ProjectView() {
                                 <div className="flex items-center justify-between">
                                     <span>{t('projectDetails.riskLevel')}</span><span className="font-medium text-yellow-600">Medium</span>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="bg-white rounded-lg shadow-sm p-6 mt-4">
+                            <h2 className="text-xl font-semibold text-gray-900 mb-4">Rewards</h2>
+                            <div>
+                                {[
+                                    { name: 'Early Bird', description: 'Early bird rewards' },
+                                    { name: 'Tier 1', description: 'Tier 1 rewards' },
+                                    { name: 'Tier 2', description: 'Tier 2 rewards' },
+                                    { name: 'Tier 3', description: 'Tier 3 rewards' }
+                                ].map((reward) => (
+                                    <div className="flex items-center space-x-2 mb-2">
+                                        <span className="font-medium text-gray-900">{reward.name}</span>
+                                        <span className="text-gray-600">{reward.description}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
