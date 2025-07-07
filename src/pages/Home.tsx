@@ -1,25 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Leaf, TrendingUp, Shield, Rocket, BarChart3, Check, ArrowRight, Play, Zap } from 'lucide-react';
-import { Building2, Users2, DollarSign } from 'lucide-react';
+import {
+    AreaChart, Area, XAxis, YAxis, CartesianGrid,
+    Tooltip, ResponsiveContainer
+} from 'recharts';
+
 import ProjectCard from '@/components/ProjectCard';
 import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
     const navigate = useNavigate();
     const [activeFeature, setActiveFeature] = useState(0);
-    const [counters, setCounters] = useState({ projects: 0, investors: 0, funded: 0 });
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        setIsVisible(true);
-
-        // Animate counters
-        const timer = setTimeout(() => {
-            setCounters({ projects: 150, investors: 2500, funded: 5.2 });
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, []);
 
     const features = [
         {
@@ -89,6 +80,20 @@ const Homepage = () => {
         "Tiếp cận thị trường đầu tư rộng lớn",
         "Hỗ trợ phát triển dự án chuyên nghiệp"
     ];
+    const data = [
+        { month: 'Jan', projects: 10, investors: 50, funded: 1.2 },
+        { month: 'Feb', projects: 25, investors: 60, funded: 3.3 },
+        { month: 'Mar', projects: 10, investors: 20, funded: 3.3 },
+        { month: 'Apr', projects: 60, investors: 55, funded: 4.5 },
+        { month: 'May', projects: 25, investors: 38, funded: 1.2 },
+        { month: 'Jun', projects: 45, investors: 64, funded: 1.1 },
+        { month: 'Jul', projects: 30, investors: 30, funded: 1.0 },
+        { month: 'Aug', projects: 10, investors: 32, funded: 3.8 },
+        { month: 'Sep', projects: 15, investors: 61, funded: 3.9 },
+        { month: 'Oct', projects: 35, investors: 60, funded: 4.9 },
+        { month: 'Nov', projects: 50, investors: 57, funded: 10 },
+        { month: 'Dec', projects: 26, investors: 39, funded: 6.5 },
+    ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden">
@@ -100,7 +105,7 @@ const Homepage = () => {
 
                 <div className="relative z-10 container mx-auto">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className={`transition-all duration-1000`}>
                             <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full mb-6">
                                 <Zap className="w-4 h-4" />
                                 <span className="text-sm font-semibold">Nền tảng đầu tư xanh #1</span>
@@ -146,9 +151,9 @@ const Homepage = () => {
                                 Kết nối nhà đầu tư với các dự án xanh, tạo ra tác động tích cực cho môi trường và xã hội
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button 
-                                className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-                                onClick={() => navigate('/create-project?step=1')}
+                                <button
+                                    className="group bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                                    onClick={() => navigate('/create-project?step=1')}
                                 >
                                     Bắt đầu đầu tư
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -159,30 +164,93 @@ const Homepage = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className={`relative transition-all duration-1000 delay-300 `}>
                             <div className="relative">
-                                <div className="absolute -inset-4 bg-gradient-to-r from-green-400 to-blue-400 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
-                                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
-                                    <div className="grid grid-cols-3 gap-4 mb-6">
-                                        <div className="text-center">
-                                            <Building2 className="w-10 h-10 my-3 text-green-600 mx-auto mb-1" />
-                                            <div className="text-3xl font-bold text-green-600">{counters.projects}+</div>
-                                            <div className="text-gray-600">Dự án</div>
+                                <div className="absolute w-full -inset-4 bg-gradient-to-r from-green-400 to-blue-400 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
+
+                                <div className="relative w-full max-w-xl mx-auto bg-white/50 backdrop-blur-sm rounded-3xl shadow-2xl py-4 px-2 flex flex-col items-center">
+                                    <h3 className="md:text-xl font-bold text-center mb-2 text-gray-700">
+                                        Thống kê theo tháng
+                                    </h3>
+
+                                    {/* Chart wrapper */}
+                                    <div className="w-full h-[200px] md:h-[250px]">
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <AreaChart data={data}>
+                                                <defs>
+                                                    <linearGradient id="colorProjects" x1="0" y1="0" x2="0" y2="1">
+                                                        <stop offset="5%" stopColor="#22c55e" stopOpacity={0.4} />
+                                                        <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
+                                                    </linearGradient>
+
+                                                    <linearGradient id="colorInvestors" x1="0" y1="0" x2="0" y2="1">
+                                                        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4} />
+                                                        <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                                                    </linearGradient>
+
+                                                    <linearGradient id="colorFunded" x1="0" y1="0" x2="0" y2="1">
+                                                        <stop offset="5%" stopColor="#a855f7" stopOpacity={0.3} />
+                                                        <stop offset="95%" stopColor="#a855f7" stopOpacity={0} />
+                                                    </linearGradient>
+                                                </defs>
+
+                                                <CartesianGrid strokeDasharray="3 3" />
+                                                <XAxis dataKey="month" />
+                                                <YAxis yAxisId="left" orientation="left" />
+                                                <YAxis yAxisId="right" orientation="right" />
+                                                <Tooltip />
+
+                                                {/* Dùng gradient đã định nghĩa bằng id */}
+                                                <Area
+                                                    yAxisId="left"
+                                                    type="linear"
+                                                    dataKey="projects"
+                                                    stroke="#22c55e"
+                                                    fill="url(#colorProjects)"
+                                                    name="Dự án"
+                                                />
+                                                <Area
+                                                    yAxisId="left"
+                                                    type="linear"
+                                                    dataKey="investors"
+                                                    stroke="#3b82f6"
+                                                    fill="url(#colorInvestors)"
+                                                    name="Nhà đầu tư"
+                                                />
+                                                <Area
+                                                    yAxisId="right"
+                                                    type="linear"
+                                                    dataKey="funded"
+                                                    stroke="#a855f7"
+                                                    fill="url(#colorFunded)"
+                                                    strokeDasharray="5 5"
+                                                    name="Huy động (Triệu USD)"
+                                                />
+                                            </AreaChart>
+                                        </ResponsiveContainer>
+
+
+                                    </div>
+
+                                    {/* Custom Legend dưới biểu đồ */}
+                                    <div className="mt-4 text-sm flex flex-wrap justify-center gap-4">
+                                        <div className="flex items-center gap-1">
+                                            <span className="w-4 h-1.5 bg-[#22c55e] inline-block rounded"></span>
+                                            <span>Dự án</span>
                                         </div>
-                                        <div className="text-center">
-                                            <Users2 className="w-10 h-10 my-3 text-blue-600 mx-auto mb-1" />
-                                            <div className="text-3xl font-bold text-blue-600">{counters.investors}+</div>
-                                            <div className="text-gray-600">Nhà đầu tư</div>
+                                        <div className="flex items-center gap-1">
+                                            <span className="w-4 h-1.5 bg-[#3b82f6] inline-block rounded"></span>
+                                            <span>Nhà đầu tư</span>
                                         </div>
-                                        <div className="text-center">
-                                            <DollarSign className="w-10 h-10 my-3 text-purple-600 mx-auto mb-1" />
-                                            <div className="text-3xl font-bold text-purple-600">${counters.funded}M</div>
-                                            <div className="text-gray-600">Đã huy động</div>
+                                        <div className="flex items-center gap-1">
+                                            <span className="w-4 h-1.5 bg-[#a855f7] inline-block rounded border border-dashed border-purple-700"></span>
+                                            <span>Huy động</span>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+
+
                         </div>
                     </div>
                 </div>

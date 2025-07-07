@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
-    ChevronDown, ChevronUp, User,
+    ChevronDown, ChevronUp, User, ArrowLeft
 } from 'lucide-react';
 import {
     PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend
@@ -101,6 +101,7 @@ export default function ProjectView() {
 
     return (
         <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+
             {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
                 <div className="absolute top-20 left-20 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
@@ -109,6 +110,21 @@ export default function ProjectView() {
                 <div className="absolute bottom-20 right-20 w-28 h-28 bg-green-300 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
             </div>
             <div className="max-w-6xl mx-auto px-4 py-8 relative z-10">
+                {/* Header Navigation */}
+                <div className="flex items-center gap-4 mb-6">
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-emerald-600"
+                        onClick={() => navigate(-1)}>
+                        <ArrowLeft className="w-4 h-4 mr-2" />
+                        Quay lại
+                    </Button>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <span>Trang chủ</span>
+                        <span>/</span>
+                        <span>Forum</span>
+                        <span>/</span>
+                        <span className="text-emerald-600">Chi tiết bài viết</span>
+                    </div>
+                </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-8">

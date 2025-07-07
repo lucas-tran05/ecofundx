@@ -20,6 +20,8 @@ const CreateNewPage = lazy(() => import('@/pages/CreateNew'))
 const SettingsPage = lazy(() => import('@/pages/Settings'))
 const LegalPage = lazy(() => import('@/pages/Legal'))
 const WalletPage = lazy(() => import('@/pages/Wallet'))
+const PostsPage = lazy(() => import('@/pages/Posts'))
+
 
 
 // Layouts
@@ -72,7 +74,7 @@ const routes: RouteConfig[] = [
     {
         path: '/project-view/:id',
         component: ViewProject,
-        layout: MainLayout,
+        layout: AuthLayout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
@@ -120,8 +122,8 @@ const routes: RouteConfig[] = [
     },
     {
         path: '/post',
-        component: ContributePage,
-        layout: MainLayout,
+        component: PostsPage,
+        layout: AuthLayout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },

@@ -168,7 +168,7 @@ const ProfilePage: React.FC = () => {
                             {/* User Info */}
                             <div className="flex-1 text-center md:text-left">
                                 <div className="flex items-center justify-center md:justify-start space-x-3">
-                                    <h1 className="text-3xl font-bold text-accent">{userProfile.fullname}</h1>
+                                    <h1 className="text-3xl font-bold text-[var(--text-primary)] md:text-[var(--text-on-primary)]">{userProfile.fullname}</h1>
                                     {userProfile.verified && (
                                         <UIBadge className="bg-blue-500 text-white hover:bg-blue-500">
                                             <Shield className="w-3 h-3 mr-1" />
@@ -176,7 +176,7 @@ const ProfilePage: React.FC = () => {
                                         </UIBadge>
                                     )}
                                 </div>
-                                <p className="text-accent mb-4">@{userProfile.username}</p>
+                                <p className="text-[var(--text-primary)] md:text-[var(--text-on-primary)] mb-4">@{userProfile.username}</p>
                                 <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
                                     {userProfile.badges.map((badge) => (
                                         <UIBadge
