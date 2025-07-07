@@ -146,7 +146,7 @@ const EcofundLoginPage = () => {
                         </div>
                         <p className="text-sm text-center mt-6 text-gray-600">
                             {t('dont-have-an-account')}{' '}
-                            <a href="/register" className="text-green-600 font-medium hover:underline transition-colors">
+                            <a href="/register?step=1" className="text-green-600 font-medium hover:underline transition-colors">
                                 {t('register-now')}
                             </a>
                         </p>

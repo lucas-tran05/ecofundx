@@ -1,12 +1,18 @@
-export interface PostType {
+export interface Post {
     _id: string;
-    author_id: string;
     title: string;
     content: string;
+    author: {
+        name: string;
+        avatar: string;
+        reputation: number;
+    };
     timeAgo: string;
     replies: number;
     likes: number;
-    isBookmarked?: boolean;
-    tag?: string;
-    image?: string;
+    views: number;
+    isBookmarked: boolean;
+    isPinned: boolean;
+    tags: string[];
+    category: string;
 }

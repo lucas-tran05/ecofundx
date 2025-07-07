@@ -19,33 +19,15 @@ import {
     TreePine,
     Recycle
 } from "lucide-react";
-
-interface Post {
-    _id: string;
-    title: string;
-    content: string;
-    author: {
-        name: string;
-        avatar: string;
-        reputation: number;
-    };
-    timeAgo: string;
-    replies: number;
-    likes: number;
-    views: number;
-    isBookmarked: boolean;
-    isPinned: boolean;
-    tags: string[];
-    category: string;
-}
+import type { Post } from "@/types/post";
 
 const CATEGORIES = [
-    { id: "all", name: "Tất cả", count: 156, icon: "🌱" },
-    { id: "environment", name: "Môi trường", count: 45, icon: "🌿" },
-    { id: "renewable", name: "Năng lượng xanh", count: 38, icon: "⚡" },
-    { id: "recycling", name: "Tái chế", count: 23, icon: "♻️" },
-    { id: "climate", name: "Khí hậu", count: 32, icon: "🌍" },
-    { id: "sustainability", name: "Bền vững", count: 18, icon: "🌳" },
+    { id: "all", name: "Tất cả", count: 156 },
+    { id: "environment", name: "Môi trường", count: 45 },
+    { id: "renewable", name: "Năng lượng xanh", count: 38 },
+    { id: "recycling", name: "Tái chế", count: 23 },
+    { id: "climate", name: "Khí hậu", count: 32 },
+    { id: "sustainability", name: "Bền vững", count: 18 },
 ];
 
 const TRENDING_TAGS = [
@@ -154,12 +136,6 @@ export default function EcoForumPage() {
         ));
     };
 
-    const toggleLike = (postId: string) => {
-        setPosts(prev => prev.map(post =>
-            post._id === postId ? { ...post, likes: post.likes + 1 } : post
-        ));
-    };
-
     return (
         <div className="min-h-screen relative overflow-hidden">
             {/* Animated Eco Background */}
@@ -216,13 +192,12 @@ export default function EcoForumPage() {
                                         <button
                                             key={category.id}
                                             onClick={() => setActiveCategory(category.id)}
-                                            className={`w-full flex items-center justify-between p-3 rounded-lg text-left transition-all duration-200 transform hover:scale-[1.02] ${activeCategory === category.id
+                                            className={`w-full flex items-center justify-between p-2 rounded-lg text-left transition-all duration-200 transform hover:scale-[1.02] ${activeCategory === category.id
                                                 ? "bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-300 shadow-md"
                                                 : "hover:bg-green-50 hover:shadow-sm"
                                                 }`}
                                         >
                                             <div className="flex items-center gap-2">
-                                                <span className="text-lg">{category.icon}</span>
                                                 <span className="font-medium">{category.name}</span>
                                             </div>
                                             <Badge variant="secondary" className="text-xs bg-green-100 text-green-700">
@@ -265,7 +240,7 @@ export default function EcoForumPage() {
                     <main className="lg:col-span-6">
                         {/* Sort Options */}
                         <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-lg font-semibold text-green-800">
+                            <h2 className="text-lg font-semibold text-[var(--text-primary)]">
                                 Dự án xanh gần đây
                             </h2>
                             <div className="flex gap-2">
@@ -273,7 +248,7 @@ export default function EcoForumPage() {
                                     variant={sortBy === "latest" ? "default" : "outline"}
                                     size="sm"
                                     onClick={() => setSortBy("latest")}
-                                    className={sortBy === "latest" ? "bg-green-600 hover:bg-green-700" : "border-green-200 text-green-700 hover:bg-green-50"}
+                                    className={sortBy === "latest" ? "bg-green-600 hover:bg-green-700" : "border-green-200 hover:bg-green-50"}
                                 >
                                     <Clock className="w-4 h-4 mr-1" />
                                     Mới nhất
@@ -282,7 +257,7 @@ export default function EcoForumPage() {
                                     variant={sortBy === "popular" ? "default" : "outline"}
                                     size="sm"
                                     onClick={() => setSortBy("popular")}
-                                    className={sortBy === "popular" ? "bg-green-600 hover:bg-green-700" : "border-green-200 text-green-700 hover:bg-green-50"}
+                                    className={sortBy === "popular" ? "bg-green-600 hover:bg-green-700" : "border-green-200 hover:bg-green-50"}
                                 >
                                     <Star className="w-4 h-4 mr-1" />
                                     Phổ biến
@@ -298,7 +273,7 @@ export default function EcoForumPage() {
                                         <div className="flex items-start gap-4">
                                             <Avatar className="w-12 h-12 flex-shrink-0 border-2 border-green-200">
                                                 <AvatarImage src={post.author.avatar} />
-                                                <AvatarFallback className="bg-green-100 text-green-700">
+                                                <AvatarFallback className="bg-green-100 text-[var(--text-primary)]">
                                                     {post.author.name.split(" ").map(n => n[0]).join("")}
                                                 </AvatarFallback>
                                             </Avatar>
@@ -308,12 +283,12 @@ export default function EcoForumPage() {
                                                     {post.isPinned && (
                                                         <Pin className="w-4 h-4 text-green-600" />
                                                     )}
-                                                    <h3 className="font-semibold text-green-900 hover:text-green-600 cursor-pointer transition-colors">
+                                                    <h3 className="font-semibold text-[var(--text-primary)] hover:text-green-600 cursor-pointer transition-colors">
                                                         {post.title}
                                                     </h3>
                                                 </div>
 
-                                                <p className="text-green-700 mb-3 line-clamp-2">
+                                                <p className="text-[var(--text-primary)] mb-3 line-clamp-2">
                                                     {post.content}
                                                 </p>
 
@@ -325,22 +300,21 @@ export default function EcoForumPage() {
                                                     ))}
                                                 </div>
 
-                                                <div className="flex items-center justify-between">
-                                                    <div className="flex items-center gap-4 text-sm text-green-600">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4 text-sm text-[var(--text-primary)]">
+                                                    {/* Left: Author + Time */}
+                                                    <div className="flex items-center gap-4">
                                                         <div className="flex items-center gap-1">
                                                             <span className="font-medium text-green-800">
                                                                 {post.author.name}
                                                             </span>
-                                                            <Badge variant="outline" className="text-xs border-green-200 text-green-600">
-                                                                {post.author.reputation}
-                                                            </Badge>
                                                         </div>
                                                         <span>•</span>
                                                         <span>{post.timeAgo}</span>
                                                     </div>
 
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="flex items-center gap-4 text-sm text-green-600">
+                                                    {/* Right: Stats + Bookmark */}
+                                                    <div className="flex items-center justify-end gap-4 flex-wrap">
+                                                        <div className="flex items-center gap-4">
                                                             <span className="flex items-center gap-1">
                                                                 <Eye className="w-4 h-4" />
                                                                 {post.views}
@@ -349,18 +323,13 @@ export default function EcoForumPage() {
                                                                 <MessageCircle className="w-4 h-4" />
                                                                 {post.replies}
                                                             </span>
+                                                            <span className="flex items-center gap-1">
+                                                                <Heart className="w-4 h-4" />
+                                                                {post.likes}
+                                                            </span>
                                                         </div>
 
                                                         <div className="flex items-center gap-1">
-                                                            <Button
-                                                                variant="ghost"
-                                                                size="sm"
-                                                                onClick={() => toggleLike(post._id)}
-                                                                className="text-green-600 hover:text-red-500 hover:bg-red-50 transition-all duration-200"
-                                                            >
-                                                                <Heart className="w-4 h-4" />
-                                                                {post.likes}
-                                                            </Button>
                                                             <Button
                                                                 variant="ghost"
                                                                 size="sm"
@@ -372,6 +341,7 @@ export default function EcoForumPage() {
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </CardContent>
@@ -386,8 +356,7 @@ export default function EcoForumPage() {
                                 onClick={handleLoadMore}
                                 className="px-8 border-green-200 text-green-700 hover:bg-green-50 hover:border-green-400 transition-all duration-200 transform hover:scale-[1.05]"
                             >
-                                <Leaf className="w-4 h-4 mr-2" />
-                                Tải thêm dự án xanh
+                                Tải thêm
                             </Button>
                         </div>
                     </main>
@@ -414,7 +383,7 @@ export default function EcoForumPage() {
                                             </div>
                                             <Avatar className="w-8 h-8 border border-green-200">
                                                 <AvatarImage src="/api/placeholder/32/32" />
-                                                <AvatarFallback className="bg-green-100 text-green-700">
+                                                <AvatarFallback className="bg-green-100 text-[var(--text-primary)]">
                                                     {contributor.name.split(" ").map(n => n[0]).join("")}
                                                 </AvatarFallback>
                                             </Avatar>
@@ -422,7 +391,7 @@ export default function EcoForumPage() {
                                                 <p className="font-medium text-sm truncate text-green-800">
                                                     {contributor.name}
                                                 </p>
-                                                <p className="text-xs text-green-600">
+                                                <p className="text-xs text-[var(--text-primary)]">
                                                     {contributor.posts} dự án
                                                 </p>
                                             </div>
@@ -444,18 +413,18 @@ export default function EcoForumPage() {
                                 </CardHeader>
                                 <CardContent className="space-y-3">
                                     <div className="text-sm">
-                                        <p className="font-medium text-green-800">🌱 Nguyễn Eco</p>
-                                        <p className="text-green-600">chia sẻ dự án "Vườn rau sạch"</p>
+                                        <p className="font-medium text-green-800">Nguyễn Eco</p>
+                                        <p className="text-[var(--text-primary)]">chia sẻ dự án "Vườn rau sạch"</p>
                                         <p className="text-xs text-green-500">5 phút trước</p>
                                     </div>
                                     <div className="text-sm">
-                                        <p className="font-medium text-green-800">🌿 Trần Green</p>
-                                        <p className="text-green-600">tham gia thảo luận năng lượng</p>
+                                        <p className="font-medium text-green-800">Trần Green</p>
+                                        <p className="text-[var(--text-primary)]">tham gia thảo luận năng lượng</p>
                                         <p className="text-xs text-green-500">15 phút trước</p>
                                     </div>
                                     <div className="text-sm">
-                                        <p className="font-medium text-green-800">♻️ Lê Sustainable</p>
-                                        <p className="text-green-600">yêu thích dự án tái chế</p>
+                                        <p className="font-medium text-green-800">Lê Sustainable</p>
+                                        <p className="text-[var(--text-primary)]">yêu thích dự án tái chế</p>
                                         <p className="text-xs text-green-500">30 phút trước</p>
                                     </div>
                                 </CardContent>
