@@ -15,7 +15,6 @@ import {
     Eye,
     Star,
     Clock,
-    Leaf,
     TreePine,
     Recycle
 } from "lucide-react";
