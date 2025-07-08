@@ -222,7 +222,7 @@ const Style5Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => 
                             <div className="absolute bottom-10 right-1/3 w-32 h-32 bg-gradient-to-r from-rose-200 to-red-200 rounded-full opacity-15 blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
                         </div>
                         {/* Main Content */}
-                        <div className="relative z-10 w-full p-6">
+                        <div className="relative z-10 w-full p-5">
                             {children}
                         </div>
                     </div>
