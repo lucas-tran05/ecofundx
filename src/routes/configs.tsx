@@ -25,57 +25,58 @@ const PostsPage = lazy(() => import('@/pages/Posts'))
 
 
 // Layouts
-const MainLayout = lazy(() => import('@/layouts/Main'))
-const AuthLayout = lazy(() => import('@/layouts/Auth'))
+const Style0Layout = lazy(() => import('@/layouts/Style0'))
+const Style1Layout = lazy(() => import('@/layouts/Style1'))
 const Style2Layout = lazy(() => import('@/layouts/Style2'))
+const Style3Layout = lazy(() => import('@/layouts/Style3'))
 
 const routes: RouteConfig[] = [
     {
         path: '/login',
         component: LoginPage,
-        layout: AuthLayout,
+        layout: Style0Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/register',
         component: RegisterPage,
-        layout: AuthLayout,
+        layout: Style3Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/active',
         component: ActivePage,
-        layout: AuthLayout,
+        layout: Style3Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/',
         component: HomePage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/legal',
         component: LegalPage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/projects',
         component: ProjectsPage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/project-view/:id',
         component: ViewProject,
-        layout: AuthLayout,
+        layout: Style0Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
@@ -96,28 +97,28 @@ const routes: RouteConfig[] = [
     {
         path: '/wallet',
         component: WalletPage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/settings',
         component: SettingsPage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/contact',
         component: ContactPage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: false,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/forum',
         component: ForumPage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
@@ -131,42 +132,42 @@ const routes: RouteConfig[] = [
     {
         path: '/about',
         component: AboutPage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/profile',
         component: ProfilePage,
-        layout: MainLayout,
+        layout: Style1Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/startup/',
         component: ContributorDashboard,
-        layout: AuthLayout,
+        layout: Style0Layout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
     {
         path: '/startup/dashboard',
         component: ContributorDashboard,
-        layout: AuthLayout,
+        layout: Style0Layout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
     {
         path: '/admin',
         component: AdminDashboard,
-        layout: AuthLayout,
+        layout: Style0Layout,
         isPrivate: true,
         role: [Role.Admin],
     },
     {
         path: '/admin/dashboard',
         component: AdminDashboard,
-        layout: AuthLayout,
+        layout: Style0Layout,
         isPrivate: true,
         role: [Role.Admin],
     },

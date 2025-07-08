@@ -1,5 +1,3 @@
-import AppFooter from '@/components/Footer'
-
 export default function Style2Layout({ children }: { children: React.ReactNode }) {
     return (
         <>
@@ -30,7 +28,6 @@ export default function Style2Layout({ children }: { children: React.ReactNode }
                     {children}
                 </div>
             </div>
-            <AppFooter />
         </>
     )
 }
