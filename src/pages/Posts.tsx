@@ -172,38 +172,38 @@ const PostDetailPage = () => {
     };
 
     return (
-        <div className="min-h-screen relative overflow-hidden flex items-center justify-center">
-            {/* Animated Background - Same as Login */}
+        <div className="min-h-screen relative overflow-hidden">
+            {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
-                {/* Floating Circles */}
-                <div className="absolute top-20 left-20 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
-                <div className="absolute top-40 right-32 w-24 h-24 bg-emerald-300 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
-                <div className="absolute bottom-32 left-1/4 w-20 h-20 bg-teal-200 rounded-full opacity-25 animate-bounce" style={{ animationDelay: '4s', animationDuration: '7s' }}></div>
-                <div className="absolute bottom-20 right-20 w-28 h-28 bg-green-300 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
+                {/* Floating Circles - Responsive sizes */}
+                <div className="absolute top-20 left-4 md:left-20 w-16 h-16 md:w-32 md:h-32 bg-green-200 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
+                <div className="absolute top-40 right-8 md:right-32 w-12 h-12 md:w-24 md:h-24 bg-emerald-300 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+                <div className="absolute bottom-32 left-1/4 w-10 h-10 md:w-20 md:h-20 bg-teal-200 rounded-full opacity-25 animate-bounce" style={{ animationDelay: '4s', animationDuration: '7s' }}></div>
+                <div className="absolute bottom-20 right-4 md:right-20 w-14 h-14 md:w-28 md:h-28 bg-green-300 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
 
                 {/* Geometric Shapes */}
-                <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-emerald-400 opacity-10 rotate-45 animate-spin" style={{ animationDuration: '20s' }}></div>
-                <div className="absolute bottom-1/3 right-1/4 w-12 h-12 bg-green-400 opacity-15 rotate-12 animate-pulse"></div>
+                <div className="absolute top-1/4 left-1/3 w-8 h-8 md:w-16 md:h-16 bg-emerald-400 opacity-10 rotate-45 animate-spin" style={{ animationDuration: '20s' }}></div>
+                <div className="absolute bottom-1/3 right-1/4 w-6 h-6 md:w-12 md:h-12 bg-green-400 opacity-15 rotate-12 animate-pulse"></div>
 
                 {/* Leaf-like Shapes */}
-                <div className="absolute top-1/2 left-10 w-8 h-16 bg-green-500 opacity-20 rounded-full transform rotate-45 animate-pulse" style={{ animationDelay: '3s' }}></div>
-                <div className="absolute top-1/3 right-10 w-6 h-12 bg-emerald-500 opacity-25 rounded-full transform -rotate-12 animate-pulse" style={{ animationDelay: '5s' }}></div>
+                <div className="absolute top-1/2 left-2 md:left-10 w-4 h-8 md:w-8 md:h-16 bg-green-500 opacity-20 rounded-full transform rotate-45 animate-pulse" style={{ animationDelay: '3s' }}></div>
+                <div className="absolute top-1/3 right-2 md:right-10 w-3 h-6 md:w-6 md:h-12 bg-emerald-500 opacity-25 rounded-full transform -rotate-12 animate-pulse" style={{ animationDelay: '5s' }}></div>
 
                 {/* Gradient Orbs */}
-                <div className="absolute top-10 left-1/2 w-40 h-40 bg-gradient-to-r from-green-200 to-emerald-300 rounded-full opacity-20 blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute bottom-10 right-1/3 w-32 h-32 bg-gradient-to-r from-teal-200 to-green-300 rounded-full opacity-15 blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+                <div className="absolute top-10 left-1/2 w-20 h-20 md:w-40 md:h-40 bg-gradient-to-r from-green-200 to-emerald-300 rounded-full opacity-20 blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute bottom-10 right-1/3 w-16 h-16 md:w-32 md:h-32 bg-gradient-to-r from-teal-200 to-green-300 rounded-full opacity-15 blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
             </div>
 
-            {/* Main Content */}
-            <div className="relative z-10 w-2/3 py-8">
+            {/* Main Content - Responsive container */}
+            <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
                 {/* Header Navigation */}
-                <div className="flex items-center gap-4 mb-6">
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-emerald-600"
-                    onClick={() => navigate(-1)}>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 md:mb-6">
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-emerald-600 self-start"
+                        onClick={() => navigate(-1)}>
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Quay lại
                     </Button>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
                         <span>Trang chủ</span>
                         <span>/</span>
                         <span>Forum</span>
@@ -213,8 +213,8 @@ const PostDetailPage = () => {
                 </div>
 
                 {/* Post Content */}
-                <Card className="mb-8 shadow-lg border-0">
-                    <CardHeader className="pb-4">
+                <Card className="mb-6 md:mb-8 shadow-lg border-0">
+                    <CardHeader className="pb-4 px-4 md:px-6">
                         <div className="flex items-center justify-between mb-4">
                             <Badge variant="secondary" className="bg-emerald-100 text-emerald-700">
                                 {post.category}
@@ -224,21 +224,21 @@ const PostDetailPage = () => {
                             </Button>
                         </div>
 
-                        <h1 className="text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
                             {post.title}
                         </h1>
 
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                             <div className="flex items-center gap-3">
-                                <Avatar className="w-12 h-12">
+                                <Avatar className="w-10 h-10 md:w-12 md:h-12">
                                     <AvatarImage src={post.authorAvatar} alt={post.author} />
                                     <AvatarFallback>
-                                        <User className="w-6 h-6" />
+                                        <User className="w-5 h-5 md:w-6 md:h-6" />
                                     </AvatarFallback>
                                 </Avatar>
                                 <div>
-                                    <p className="font-semibold text-gray-900">{post.author}</p>
-                                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                                    <p className="font-semibold text-gray-900 text-sm md:text-base">{post.author}</p>
+                                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs md:text-sm text-gray-500">
                                         <div className="flex items-center gap-1">
                                             <Calendar className="w-3 h-3" />
                                             {post.publishDate}
@@ -260,7 +260,8 @@ const PostDetailPage = () => {
                                     className={`${liked ? 'text-red-500' : 'text-gray-500'} hover:text-red-500 transition-colors`}
                                 >
                                     <Heart className={`w-4 h-4 mr-1 ${liked ? 'fill-current' : ''}`} />
-                                    {likeCount}
+                                    <span className="hidden sm:inline">{likeCount}</span>
+                                    <span className="sm:hidden">{likeCount > 999 ? '999+' : likeCount}</span>
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -277,41 +278,13 @@ const PostDetailPage = () => {
                         </div>
                     </CardHeader>
 
-                    <CardContent>
-                        <div className="prose max-w-none">
-                            <p className="mb-4 text-gray-700 leading-relaxed">
-                                Trong thời đại công nghệ 4.0, việc tăng năng suất làm việc đã trở thành một yếu tố quyết định thành công của mỗi cá nhân và tổ chức. Sau đây là 10 bí quyết được chứng minh hiệu quả:
-                            </p>
-
-                            <h3 className="text-xl font-semibold mb-3 text-emerald-700">1. Quản lý thời gian hiệu quả</h3>
-                            <p className="mb-4 text-gray-700 leading-relaxed">
-                                Sử dụng phương pháp Pomodoro để chia nhỏ công việc thành các khoảng thời gian 25 phút, giúp tập trung tốt hơn và giảm căng thẳng.
-                            </p>
-
-                            <h3 className="text-xl font-semibold mb-3 text-emerald-700">2. Thiết lập mục tiêu rõ ràng</h3>
-                            <p className="mb-4 text-gray-700 leading-relaxed">
-                                Áp dụng nguyên tắc SMART (Specific, Measurable, Achievable, Relevant, Time-bound) để đặt ra những mục tiêu cụ thể và có thể đo lường được.
-                            </p>
-
-                            <h3 className="text-xl font-semibold mb-3 text-emerald-700">3. Tối ưu hóa không gian làm việc</h3>
-                            <p className="mb-4 text-gray-700 leading-relaxed">
-                                Một môi trường làm việc gọn gàng, thoải mái sẽ giúp tinh thần thoải mái và tăng khả năng sáng tạo.
-                            </p>
-
-                            <h3 className="text-xl font-semibold mb-3 text-emerald-700">4. Sử dụng công nghệ hỗ trợ</h3>
-                            <p className="mb-4 text-gray-700 leading-relaxed">
-                                Tận dụng các ứng dụng quản lý công việc như Trello, Asana, hoặc Notion để theo dõi tiến độ và tổ chức công việc một cách khoa học.
-                            </p>
-
-                            <p className="mb-6 text-gray-700 leading-relaxed">
-                                Những phương pháp trên đã được nhiều chuyên gia và doanh nghiệp áp dụng thành công. Hãy thử nghiệm và tìm ra phương pháp phù hợp nhất với bản thân bạn!
-                            </p>
-                        </div>
-
+                    <CardContent className="px-4 md:px-6">
+                        {/* Post Content XSS can be exploited */}
+                        <div dangerouslySetInnerHTML={{ __html: post.content }} /> 
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2 pt-6 border-t">
-                            {post.tags.map((tag, index) => (
-                                <Badge key={index} variant="outline" className="text-emerald-600 border-emerald-300 hover:bg-emerald-50">
+                            {post.tags.map((tag) => (
+                                <Badge key={tag} variant="secondary" className="bg-emerald-100 text-emerald-700">
                                     #{tag}
                                 </Badge>
                             ))}
@@ -321,17 +294,17 @@ const PostDetailPage = () => {
 
                 {/* Comments Section */}
                 <Card className="shadow-lg border-0">
-                    <CardHeader>
+                    <CardHeader className="px-4 md:px-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                                <MessageCircle className="w-6 h-6 text-emerald-600" />
+                            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 flex items-center gap-2">
+                                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-emerald-600" />
                                 Bình luận ({comments.length})
                             </h3>
                             <Button
                                 variant="ghost"
                                 size="sm"
                                 onClick={() => setShowComments(!showComments)}
-                                className="text-emerald-600"
+                                className="text-emerald-600 text-sm"
                             >
                                 {showComments ? 'Ẩn' : 'Hiện'} bình luận
                             </Button>
@@ -339,11 +312,11 @@ const PostDetailPage = () => {
                     </CardHeader>
 
                     {showComments && (
-                        <CardContent>
+                        <CardContent className="px-4 md:px-6">
                             {/* Add Comment */}
-                            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-                                <div className="flex gap-3">
-                                    <Avatar className="w-10 h-10">
+                            <div className="mb-6 p-3 md:p-4 bg-gray-50 rounded-lg">
+                                <div className="flex gap-2 md:gap-3">
+                                    <Avatar className="w-8 h-8 md:w-10 md:h-10">
                                         <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop&crop=face" alt="Bạn" />
                                         <AvatarFallback>B</AvatarFallback>
                                     </Avatar>
@@ -352,20 +325,23 @@ const PostDetailPage = () => {
                                             placeholder="Chia sẻ suy nghĩ của bạn về bài viết này..."
                                             value={newComment}
                                             onChange={(e) => setNewComment(e.target.value)}
-                                            className="mb-3 border-gray-200 focus:border-emerald-500"
+                                            className="mb-3 border-gray-200 focus:border-emerald-500 text-sm md:text-base"
+                                            rows={3}
                                         />
                                         <div className="flex items-center justify-between">
-                                            <Button variant="ghost" size="sm" className="text-gray-500">
+                                            <Button variant="ghost" size="sm" className="text-gray-500 hidden sm:flex">
                                                 <Smile className="w-4 h-4 mr-1" />
                                                 Emoji
                                             </Button>
                                             <Button
                                                 onClick={handleAddComment}
                                                 disabled={!newComment.trim()}
-                                                className="bg-emerald-600 hover:bg-emerald-700"
+                                                className="bg-emerald-600 hover:bg-emerald-700 text-sm md:text-base ml-auto"
+                                                size="sm"
                                             >
-                                                <Send className="w-4 h-4 mr-2" />
-                                                Đăng bình luận
+                                                <Send className="w-4 h-4 mr-1 md:mr-2" />
+                                                <span className="hidden sm:inline">Đăng bình luận</span>
+                                                <span className="sm:hidden">Đăng</span>
                                             </Button>
                                         </div>
                                     </div>
@@ -373,51 +349,51 @@ const PostDetailPage = () => {
                             </div>
 
                             {/* Comments List */}
-                            <div className="space-y-6">
+                            <div className="space-y-4 md:space-y-6">
                                 {comments.map((comment) => (
-                                    <div key={comment.id} className="border-b border-gray-100 pb-6 last:border-b-0">
-                                        <div className="flex gap-3">
-                                            <Avatar className="w-10 h-10">
+                                    <div key={comment.id} className="border-b border-gray-100 pb-4 md:pb-6 last:border-b-0">
+                                        <div className="flex gap-2 md:gap-3">
+                                            <Avatar className="w-8 h-8 md:w-10 md:h-10">
                                                 <AvatarImage src={comment.avatar} alt={comment.author} />
                                                 <AvatarFallback>
-                                                    <User className="w-5 h-5" />
+                                                    <User className="w-4 h-4 md:w-5 md:h-5" />
                                                 </AvatarFallback>
                                             </Avatar>
                                             <div className="flex-1">
-                                                <div className="bg-gray-50 p-4 rounded-lg">
+                                                <div className="bg-gray-50 p-3 md:p-4 rounded-lg">
                                                     <div className="flex items-center gap-2 mb-2">
-                                                        <span className="font-semibold text-gray-900">{comment.author}</span>
-                                                        <span className="text-sm text-gray-500">{comment.time}</span>
+                                                        <span className="font-semibold text-gray-900 text-sm md:text-base">{comment.author}</span>
+                                                        <span className="text-xs md:text-sm text-gray-500">{comment.time}</span>
                                                     </div>
-                                                    <p className="text-gray-700 leading-relaxed">{comment.content}</p>
+                                                    <p className="text-gray-700 leading-relaxed text-sm md:text-base">{comment.content}</p>
                                                 </div>
 
-                                                <div className="flex items-center gap-4 mt-2">
+                                                <div className="flex items-center gap-2 md:gap-4 mt-2">
                                                     <Button
                                                         variant="ghost"
                                                         size="sm"
                                                         onClick={() => handleCommentLike(comment.id)}
-                                                        className={`${comment.liked ? 'text-emerald-600' : 'text-gray-500'} hover:text-emerald-600`}
+                                                        className={`${comment.liked ? 'text-emerald-600' : 'text-gray-500'} hover:text-emerald-600 text-xs md:text-sm`}
                                                     >
-                                                        <ThumbsUp className={`w-4 h-4 mr-1 ${comment.liked ? 'fill-current' : ''}`} />
+                                                        <ThumbsUp className={`w-3 h-3 md:w-4 md:h-4 mr-1 ${comment.liked ? 'fill-current' : ''}`} />
                                                         {comment.likes}
                                                     </Button>
                                                     <Button
                                                         variant="ghost"
                                                         size="sm"
-                                                        // onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)}
-                                                        className="text-gray-500 hover:text-emerald-600"
+                                                        // onClick={() => setReplyingTo(replyingTo? comment.id ? null : comment.id)}
+                                                        className="text-gray-500 hover:text-emerald-600 text-xs md:text-sm"
                                                     >
-                                                        <Reply className="w-4 h-4 mr-1" />
+                                                        <Reply className="w-3 h-3 md:w-4 md:h-4 mr-1" />
                                                         Trả lời
                                                     </Button>
                                                 </div>
 
                                                 {/* Reply Form */}
                                                 {replyingTo === comment.id && (
-                                                    <div className="mt-4 ml-8">
-                                                        <div className="flex gap-3">
-                                                            <Avatar className="w-8 h-8">
+                                                    <div className="mt-3 md:mt-4 ml-4 md:ml-8">
+                                                        <div className="flex gap-2 md:gap-3">
+                                                            <Avatar className="w-6 h-6 md:w-8 md:h-8">
                                                                 <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop&crop=face" alt="Bạn" />
                                                                 <AvatarFallback>B</AvatarFallback>
                                                             </Avatar>
@@ -426,14 +402,14 @@ const PostDetailPage = () => {
                                                                     placeholder="Viết phản hồi..."
                                                                     value={replyContent}
                                                                     onChange={(e) => setReplyContent(e.target.value)}
-                                                                    className="mb-2"
+                                                                    className="mb-2 text-sm md:text-base"
                                                                 />
                                                                 <div className="flex gap-2">
                                                                     <Button
                                                                         size="sm"
                                                                         onClick={() => handleReply(comment.id)}
                                                                         disabled={!replyContent.trim()}
-                                                                        className="bg-emerald-600 hover:bg-emerald-700"
+                                                                        className="bg-emerald-600 hover:bg-emerald-700 text-xs md:text-sm"
                                                                     >
                                                                         Gửi
                                                                     </Button>
@@ -441,6 +417,7 @@ const PostDetailPage = () => {
                                                                         size="sm"
                                                                         variant="ghost"
                                                                         onClick={() => setReplyingTo(null)}
+                                                                        className="text-xs md:text-sm"
                                                                     >
                                                                         Hủy
                                                                     </Button>

@@ -81,3 +81,8 @@
 .recharts-surface:focus {
     outline: none;
 }
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;  
+}

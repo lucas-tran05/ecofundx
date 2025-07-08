@@ -81,14 +81,14 @@ const routes: RouteConfig[] = [
     {
         path: '/project-contribute/:id',
         component: ContributePage,
-        layout: MainLayout,
+        layout: AuthLayout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/create-project',
         component: CreateNewPage,
-        layout: MainLayout,
+        layout: AuthLayout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },

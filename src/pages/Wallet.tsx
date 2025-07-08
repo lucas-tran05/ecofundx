@@ -12,12 +12,20 @@ import {
     Eye,
     EyeOff,
     TrendingUp,
-    TrendingDown,
     Zap,
     Shield,
     Star,
     QrCode
 } from 'lucide-react';
+import {
+    AreaChart,
+    Area,
+    XAxis,
+    YAxis,
+    Tooltip,
+    CartesianGrid,
+    ResponsiveContainer,
+} from "recharts";
 
 const WalletPage = () => {
     const [isBalanceVisible, setIsBalanceVisible] = useState(true);
@@ -90,6 +98,22 @@ const WalletPage = () => {
         }
     ];
 
+    const financeData = [
+        { month: "Jan", income: 2000, expense: 1200 },
+        { month: "Feb", income: 2500, expense: 1600 },
+        { month: "Mar", income: 2200, expense: 3000 },
+        { month: "Apr", income: 2800, expense: 1900 },
+        { month: "May", income: 3000, expense: 2500 },
+        { month: "Jun", income: 2700, expense: 2300 },
+        { month: "Jul", income: 3200, expense: 2800 },
+        { month: "Aug", income: 1800, expense: 2000 },
+        { month: "Sep", income: 2500, expense: 2900 },
+        { month: "Oct", income: 3600, expense: 1900 },
+        { month: "Nov", income: 3800, expense: 2500 },
+        { month: "Dec", income: 3100, expense: 1200 },
+    ];
+
+
     useEffect(() => {
         const interval = setInterval(() => {
             setIsAnimating(true);
@@ -101,10 +125,10 @@ const WalletPage = () => {
     const totalBalance = wallets.reduce((sum, wallet) => sum + wallet.usdValue, 0);
 
     return (
-        <div className="min-h-screen pb-4 pt-32">
-            <div className="max-w-6xl mx-auto">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-8">
+        <div className="min-h-screen pb-4 pt-24">
+            <div className="max-w-6xl mx-auto p-4">
+                {/* Header dùng grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between mb-8 gap-4">
                     <div className="flex items-center gap-4">
                         <div className="relative">
                             <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center">
@@ -113,11 +137,11 @@ const WalletPage = () => {
                             <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
                         </div>
                         <div>
-                            <h1 className="text-3xl font-bold text-[var(--text-primary)]">CryptoWallet</h1>
+                            <h1 className="text-3xl font-bold text-[var(--text-primary)]">EcoFund Wallet</h1>
                             <p className="text-gray-400">Quản lý tài sản số của bạn</p>
                         </div>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex justify-start md:justify-end gap-2">
                         <Button size="sm" variant="outline" className="border-emerald-500 text-emerald-400 hover:bg-emerald-500/10">
                             <QrCode className="w-4 h-4 mr-2" />
                             QR Code
@@ -128,6 +152,7 @@ const WalletPage = () => {
                         </Button>
                     </div>
                 </div>
+
 
                 {/* Balance Overview */}
                 <Card className="mb-8 bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 shadow-lg">
@@ -285,10 +310,42 @@ const WalletPage = () => {
 
                     <TabsContent value="analytics" className="space-y-4">
                         <Card className="bg-white border-gray-200 shadow-lg">
-                            <CardContent className="p-6">
-                                <div className="text-center text-gray-500 py-8">
-                                    <TrendingDown className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                                    <p>Phân tích chi tiết sẽ hiển thị tại đây</p>
+                            <CardContent className="p-2 md:p-6">
+                                <div className="text-center text-gray-500 py-8 pr-8">
+                                    <ResponsiveContainer width="100%" height={300}>
+                                        <AreaChart data={financeData}>
+                                            <defs>
+                                                <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.6} />
+                                                    <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                                                </linearGradient>
+                                                <linearGradient id="expenseGradient" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="5%" stopColor="#ef4444" stopOpacity={0.5} />
+                                                    <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
+                                                </linearGradient>
+                                            </defs>
+
+                                            <CartesianGrid strokeDasharray="3 3" />
+                                            <XAxis dataKey="month" />
+                                            <YAxis />
+                                            <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+
+                                            <Area
+                                                type="linear"
+                                                dataKey="income"
+                                                stroke="#10b981"
+                                                fill="url(#incomeGradient)"
+                                                name="Tiền vào"
+                                            />
+                                            <Area
+                                                type="linear"
+                                                dataKey="expense"
+                                                stroke="#ef4444"
+                                                fill="url(#expenseGradient)"
+                                                name="Tiền ra"
+                                            />
+                                        </AreaChart>
+                                    </ResponsiveContainer>
                                 </div>
                             </CardContent>
                         </Card>

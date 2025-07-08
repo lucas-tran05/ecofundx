@@ -205,7 +205,7 @@ export default function EcoForumPage() {
                                                 className="cursor-pointer hover:bg-green-50 border-green-200 text-green-700 hover:border-green-400 transition-all duration-200 transform hover:scale-[1.05]"
                                             >
                                                 #{tag.name}
-                                                <span className="ml-1 text-xs text-green-600">
+                                                <span className="ml-1 text-xs text-[var(--text-primary)]">
                                                     {tag.count}
                                                 </span>
                                             </Badge>
@@ -251,9 +251,9 @@ export default function EcoForumPage() {
                                 <Card key={post._id} className="bg-white/80 backdrop-blur-lg border-green-200/50 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                                     <CardContent className="p-6">
                                         <div className="flex items-start gap-4">
-                                            <Avatar className="w-12 h-12 flex-shrink-0 border-2 border-green-200">
+                                            <Avatar className="w-12 h-12 flex-shrink-0 border-2">
                                                 <AvatarImage src={post.author.avatar} />
-                                                <AvatarFallback className="bg-green-100 text-[var(--text-primary)]">
+                                                <AvatarFallback>
                                                     {post.author.name.split(" ").map(n => n[0]).join("")}
                                                 </AvatarFallback>
                                             </Avatar>
@@ -363,9 +363,9 @@ export default function EcoForumPage() {
                                                 }`}>
                                                 {index + 1}
                                             </div>
-                                            <Avatar className="w-8 h-8 border border-green-200">
+                                            <Avatar className="w-8 h-8 border-2">
                                                 <AvatarImage src="/api/placeholder/32/32" />
-                                                <AvatarFallback className="bg-green-100 text-[var(--text-primary)]">
+                                                <AvatarFallback className="text-xs text-[var(--text-primary)]">
                                                     {contributor.name.split(" ").map(n => n[0]).join("")}
                                                 </AvatarFallback>
                                             </Avatar>
@@ -397,17 +397,17 @@ export default function EcoForumPage() {
                                     <div className="text-sm">
                                         <p className="font-medium text-green-800">Nguyễn Eco</p>
                                         <p className="text-[var(--text-primary)]">chia sẻ dự án "Vườn rau sạch"</p>
-                                        <p className="text-xs text-green-500">5 phút trước</p>
+                                        <p className="text-xs text-gray-400">5 phút trước</p>
                                     </div>
                                     <div className="text-sm">
                                         <p className="font-medium text-green-800">Trần Green</p>
                                         <p className="text-[var(--text-primary)]">tham gia thảo luận năng lượng</p>
-                                        <p className="text-xs text-green-500">15 phút trước</p>
+                                        <p className="text-xs text-gray-400">15 phút trước</p>
                                     </div>
                                     <div className="text-sm">
                                         <p className="font-medium text-green-800">Lê Sustainable</p>
                                         <p className="text-[var(--text-primary)]">yêu thích dự án tái chế</p>
-                                        <p className="text-xs text-green-500">30 phút trước</p>
+                                        <p className="text-xs text-gray-400">30 phút trước</p>
                                     </div>
                                 </CardContent>
                             </Card>
