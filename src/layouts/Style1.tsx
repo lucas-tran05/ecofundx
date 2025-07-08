@@ -1,7 +1,15 @@
 import AppFooter from '@/components/Footer'
 import AppHeader from '@/components/Header'
+import { useEffect, useState } from 'react'
 
 export default function Style1Layout({ children }: { children: React.ReactNode }) {
+    const [headerHeight, setHeaderHeight] = useState(0);
+
+    useEffect(() => {
+        const height = document.getElementById('header-set')?.offsetHeight || 0;
+        setHeaderHeight(height);
+    }, []);
+
     return (
         <>
             <AppHeader />
@@ -29,6 +37,7 @@ export default function Style1Layout({ children }: { children: React.ReactNode }
 
                 {/* Main Content */}
                 <div className="relative z-10 w-full">
+                    <div style={{ height: headerHeight + 20}}></div>
                     {children}
                 </div>
             </div>

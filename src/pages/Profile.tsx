@@ -121,7 +121,7 @@ const ProfilePage: React.FC = () => {
     };
 
     return (
-        <div className="pb-8 pt-32">
+        <div className="p-4">
             <div className="mx-auto px-4 max-w-6xl">
                 {/* Header Section */}
                 <div className="relative mb-8">

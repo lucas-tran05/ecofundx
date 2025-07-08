@@ -8,8 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Info, CreditCard, Eye, Star, Building, ArrowLeft, User, Gift } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';     
+import { Info, CreditCard, Eye, Star, Building, User, Gift } from 'lucide-react';
 
 // Step 1: Personal Information
 const Step1 = () => {
@@ -661,7 +660,6 @@ const Step4 = () => {
 
 // Demo Container
 const ContributeStepsDemo = () => {
-    const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(1);
 
     const steps = [
@@ -676,22 +674,7 @@ const ContributeStepsDemo = () => {
 
     return (
         <div className="min-h-screen p-2 md:p-8">
-            <div className="max-w-4xl mx-auto">
-                {/* Header Navigation */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 md:mb-6">
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-emerald-600 self-start"
-                        onClick={() => navigate(-1)}>
-                        <ArrowLeft className="w-4 h-4 mr-2" />
-                        Quay lại
-                    </Button>
-                    <div className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
-                        <span>Trang chủ</span>
-                        <span>/</span>
-                        <span>Forum</span>
-                        <span>/</span>
-                        <span className="text-emerald-600">Chi tiết bài viết</span>
-                    </div>
-                </div>
+            <div className=" mx-auto">
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8">
                     {/* Header */}
                     <div className="text-center mb-8">

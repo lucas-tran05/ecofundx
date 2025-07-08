@@ -87,7 +87,9 @@ const AppHeader: FC = () => {
                     : "bg-white/95 backdrop-blur-sm shadow-sm"
                 }
                 min-h-auto 
+                
             `}
+            id="header-set"
         >
             <div className="container mx-auto px-4 py-4 md:px-6 lg:px-8">
                 <div className="flex items-center justify-between">

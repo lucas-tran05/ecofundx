@@ -85,7 +85,7 @@ const ProjectsPage = () => {
     const visibleProjects = projects.slice(0, visibleCount);
 
     return (
-        <div className="flex flex-col items-center justify-center mx-auto px-4 py-32 ">
+        <div className="flex flex-col items-center justify-center mx-auto p-4 ">
             {/* Projects Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 {visibleProjects.map((project) => (

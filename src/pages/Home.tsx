@@ -98,7 +98,7 @@ const Homepage = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden">
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center px-4 py-8 pt-32 sm:px-8 lg:px-16">
+            <section className="relative min-h-screen flex items-center justify-center px-4 py-4 sm:px-8 lg:px-16">
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-blue-500/10 to-purple-500/10"></div>
                 <div className="absolute top-20 left-20 w-72 h-72 bg-green-400/20 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>

@@ -23,9 +23,11 @@ const WalletPage = lazy(() => import('@/pages/Wallet'))
 const PostsPage = lazy(() => import('@/pages/Posts'))
 
 // Layouts
-const Style0Layout = lazy(() => import('@/layouts/Style0'))
+const Style0Layout = lazy(() => import('@/layouts/Auth'))
 const Style1Layout = lazy(() => import('@/layouts/Style1'))
 const Style2Layout = lazy(() => import('@/layouts/Style2'))
+const Style4Layout = lazy(() => import('@/layouts/Style4'))
+const Style5Layout = lazy(() => import('@/layouts/Style5'))
 
 const routes: RouteConfig[] = [
     {
@@ -85,9 +87,9 @@ const routes: RouteConfig[] = [
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
-        path: '/create-project',
+        path: '/startup/create-project',
         component: CreateNewPage,
-        layout: Style2Layout,
+        layout: Style4Layout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
@@ -95,6 +97,13 @@ const routes: RouteConfig[] = [
         path: '/wallet',
         component: WalletPage,
         layout: Style1Layout,
+        isPrivate: true,
+        role: [Role.User, Role.Contributor, Role.Admin],
+    },
+    {
+        path: '/startup/wallet',
+        component: WalletPage,
+        layout: Style4Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
@@ -143,28 +152,28 @@ const routes: RouteConfig[] = [
     {
         path: '/startup/',
         component: ContributorDashboard,
-        layout: Style0Layout,
+        layout: Style4Layout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
     {
         path: '/startup/dashboard',
         component: ContributorDashboard,
-        layout: Style0Layout,
+        layout: Style4Layout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
     {
         path: '/admin',
         component: AdminDashboard,
-        layout: Style0Layout,
+        layout: Style5Layout,
         isPrivate: true,
         role: [Role.Admin],
     },
     {
         path: '/admin/dashboard',
         component: AdminDashboard,
-        layout: Style0Layout,
+        layout: Style5Layout,
         isPrivate: true,
         role: [Role.Admin],
     },

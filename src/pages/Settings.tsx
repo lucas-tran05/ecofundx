@@ -418,7 +418,7 @@ export default function SettingsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-32">
+        <div className="min-h-screen bg-gray-50 relative overflow-hidden p-4">
             {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
                 <div className="absolute top-20 left-20 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
