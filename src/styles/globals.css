@@ -2,7 +2,7 @@
     --bg-style-1: linear-gradient(to bottom, #c2e59c, #64b3f4);
     --bg-style-2: linear-gradient(to bottom right, #111827, #1f2937, #111827);
     --bg-style-3: linear-gradient(to bottom, #c2e59c, #64b3f4);
-    --text-gradient:  linear-gradient(to right, #4B9330, #6DBE45);
+    --text-gradient: linear-gradient(to right, #4B9330, #6DBE45);
     --background-image: linear-gradient(to right, #4B9330, #6DBE45);
 
     /* ===== PRIMARY (Xanh lá tự nhiên) ===== */
@@ -76,4 +76,8 @@
     --text-primary-2: #64b3f4;
     --text-primary-3: #c2e59c;
     --text-primary-4: #64b3f4;
+}
+
+.recharts-surface:focus {
+    outline: none;
 }
