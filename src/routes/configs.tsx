@@ -27,6 +27,7 @@ const PostsPage = lazy(() => import('@/pages/Posts'))
 // Layouts
 const MainLayout = lazy(() => import('@/layouts/Main'))
 const AuthLayout = lazy(() => import('@/layouts/Auth'))
+const Style2Layout = lazy(() => import('@/layouts/Style2'))
 
 const routes: RouteConfig[] = [
     {
@@ -81,14 +82,14 @@ const routes: RouteConfig[] = [
     {
         path: '/project-contribute/:id',
         component: ContributePage,
-        layout: AuthLayout,
+        layout: Style2Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/create-project',
         component: CreateNewPage,
-        layout: AuthLayout,
+        layout: Style2Layout,
         isPrivate: true,
         role: [Role.Contributor, Role.Admin],
     },
@@ -123,7 +124,7 @@ const routes: RouteConfig[] = [
     {
         path: '/post',
         component: PostsPage,
-        layout: AuthLayout,
+        layout: Style2Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },

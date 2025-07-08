@@ -173,26 +173,6 @@ const PostDetailPage = () => {
 
     return (
         <div className="min-h-screen relative overflow-hidden">
-            {/* Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
-                {/* Floating Circles - Responsive sizes */}
-                <div className="absolute top-20 left-4 md:left-20 w-16 h-16 md:w-32 md:h-32 bg-green-200 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
-                <div className="absolute top-40 right-8 md:right-32 w-12 h-12 md:w-24 md:h-24 bg-emerald-300 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
-                <div className="absolute bottom-32 left-1/4 w-10 h-10 md:w-20 md:h-20 bg-teal-200 rounded-full opacity-25 animate-bounce" style={{ animationDelay: '4s', animationDuration: '7s' }}></div>
-                <div className="absolute bottom-20 right-4 md:right-20 w-14 h-14 md:w-28 md:h-28 bg-green-300 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
-
-                {/* Geometric Shapes */}
-                <div className="absolute top-1/4 left-1/3 w-8 h-8 md:w-16 md:h-16 bg-emerald-400 opacity-10 rotate-45 animate-spin" style={{ animationDuration: '20s' }}></div>
-                <div className="absolute bottom-1/3 right-1/4 w-6 h-6 md:w-12 md:h-12 bg-green-400 opacity-15 rotate-12 animate-pulse"></div>
-
-                {/* Leaf-like Shapes */}
-                <div className="absolute top-1/2 left-2 md:left-10 w-4 h-8 md:w-8 md:h-16 bg-green-500 opacity-20 rounded-full transform rotate-45 animate-pulse" style={{ animationDelay: '3s' }}></div>
-                <div className="absolute top-1/3 right-2 md:right-10 w-3 h-6 md:w-6 md:h-12 bg-emerald-500 opacity-25 rounded-full transform -rotate-12 animate-pulse" style={{ animationDelay: '5s' }}></div>
-
-                {/* Gradient Orbs */}
-                <div className="absolute top-10 left-1/2 w-20 h-20 md:w-40 md:h-40 bg-gradient-to-r from-green-200 to-emerald-300 rounded-full opacity-20 blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute bottom-10 right-1/3 w-16 h-16 md:w-32 md:h-32 bg-gradient-to-r from-teal-200 to-green-300 rounded-full opacity-15 blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
-            </div>
 
             {/* Main Content - Responsive container */}
             <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
