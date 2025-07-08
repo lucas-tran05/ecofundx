@@ -22,13 +22,10 @@ const LegalPage = lazy(() => import('@/pages/Legal'))
 const WalletPage = lazy(() => import('@/pages/Wallet'))
 const PostsPage = lazy(() => import('@/pages/Posts'))
 
-
-
 // Layouts
 const Style0Layout = lazy(() => import('@/layouts/Style0'))
 const Style1Layout = lazy(() => import('@/layouts/Style1'))
 const Style2Layout = lazy(() => import('@/layouts/Style2'))
-const Style3Layout = lazy(() => import('@/layouts/Style3'))
 
 const routes: RouteConfig[] = [
     {
@@ -41,14 +38,14 @@ const routes: RouteConfig[] = [
     {
         path: '/register',
         component: RegisterPage,
-        layout: Style3Layout,
+        layout: Style0Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
     {
         path: '/active',
         component: ActivePage,
-        layout: Style3Layout,
+        layout: Style0Layout,
         isPrivate: false,
         role: [Role.Guest, Role.User, Role.Contributor, Role.Admin],
     },
