@@ -175,7 +175,7 @@ const PostDetailPage = () => {
         <div className="min-h-screen relative overflow-hidden">
 
             {/* Main Content - Responsive container */}
-            <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
+            <div className="relative z-10 w-full max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 py-4 md:py-8">
                 {/* Header Navigation */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 md:mb-6">
                     <Button variant="ghost" size="sm" className="text-gray-600 hover:text-emerald-600 self-start"

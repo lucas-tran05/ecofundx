@@ -595,7 +595,7 @@ const ContributeStepsDemo = () => {
     const StepComponent = currentStepData?.component || Step1;
 
     return (
-        <div className="min-h-screen p2 md:p-8">
+        <div className="min-h-screen p-2 md:p-8">
             <div className="max-w-4xl mx-auto ">
                 {/* Header Navigation */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 md:mb-6">
