@@ -1,4 +1,5 @@
 import {
+    Book,
     Home, PenBoxIcon, Wallet,
     // Settings
 } from "lucide-react";
@@ -16,6 +17,12 @@ const navItems: NavItem[] = [
         label: 'Create New',
         icon: <PenBoxIcon className="w-5 h-5" />,
         path: '/startup/create-project',
+    },
+    {
+        id: 'projects',
+        label: 'Projects Management',
+        icon: <Book className="w-5 h-5" />,
+        path: '/startup/projects',
     },
     {
         id: 'wallet',

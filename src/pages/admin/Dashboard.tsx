@@ -24,8 +24,8 @@ import { TrendingUp, Users, ShoppingCart, DollarSign, Eye, Target, Activity } fr
 
 // Mock data
 const revenueData = [
-    { month: 'Jan', revenue: 45000, orders: 234, users: 1200 },
-    { month: 'Feb', revenue: 52000, orders: 267, users: 1350 },
+    { month: 'Jan', revenue: 45000, orders: 230, users: 1200 },
+    { month: 'Feb', revenue: 52000, orders: 200, users: 1350 },
     { month: 'Mar', revenue: 48000, orders: 245, users: 1280 },
     { month: 'Apr', revenue: 61000, orders: 312, users: 1520 },
     { month: 'May', revenue: 55000, orders: 289, users: 1420 },
@@ -272,11 +272,12 @@ export default function AdminDashboard() {
                             <BarChart data={revenueData.slice(-6)}>
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="month" />
-                                <YAxis />
+                                <YAxis yAxisId="left" />
+                                <YAxis yAxisId="right" orientation="right" />
                                 <Tooltip />
                                 <Legend />
-                                <Bar dataKey="revenue" fill="#3B82F6" name="Revenue" />
-                                <Bar dataKey="orders" fill="#10B981" name="Orders" />
+                                <Bar dataKey="revenue" fill="#3B82F6" name="Revenue" yAxisId={"left"}/>
+                                <Bar dataKey="orders" fill="#10B981" name="Orders" yAxisId={"right"} />
                             </BarChart>
                         </ResponsiveContainer>
                     </ChartCard>

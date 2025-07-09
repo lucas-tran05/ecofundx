@@ -12,8 +12,6 @@ const ContactPage = lazy(() => import('@/pages/Contact'))
 const ForumPage = lazy(() => import('@/pages/Forum'))
 const AboutPage = lazy(() => import('@/pages/About'))
 const ProfilePage = lazy(() => import('@/pages/Profile'))
-const ContributorDashboard = lazy(() => import('@/pages/startup/Dashboard'))
-const AdminDashboard = lazy(() => import('@/pages/admin/Dashboard'))
 const ViewProject = lazy(() => import('@/pages/View'))
 const ContributePage = lazy(() => import('@/pages/Contribute'))
 const CreateNewPage = lazy(() => import('@/pages/CreateNew'))
@@ -21,6 +19,12 @@ const SettingsPage = lazy(() => import('@/pages/Settings'))
 const LegalPage = lazy(() => import('@/pages/Legal'))
 const WalletPage = lazy(() => import('@/pages/Wallet'))
 const PostsPage = lazy(() => import('@/pages/Posts'))
+const ContributorDashboard = lazy(() => import('@/pages/startup/Dashboard'))
+const ProjectsPageContributor = lazy(() => import('@/pages/startup/Projects'))
+const AdminDashboard = lazy(() => import('@/pages/admin/Dashboard'))
+const UserManagementPageAdmin = lazy(() => import('@/pages/admin/UsersManagement'))
+const ProjectsPageAdmin = lazy(() => import('@/pages/admin/Projects'))
+
 
 // Layouts
 const Style0Layout = lazy(() => import('@/layouts/Auth'))
@@ -87,23 +91,9 @@ const routes: RouteConfig[] = [
         role: [Role.User, Role.Contributor, Role.Admin],
     },
     {
-        path: '/startup/create-project',
-        component: CreateNewPage,
-        layout: Style4Layout,
-        isPrivate: true,
-        role: [Role.Contributor, Role.Admin],
-    },
-    {
         path: '/wallet',
         component: WalletPage,
         layout: Style1Layout,
-        isPrivate: true,
-        role: [Role.User, Role.Contributor, Role.Admin],
-    },
-    {
-        path: '/startup/wallet',
-        component: WalletPage,
-        layout: Style4Layout,
         isPrivate: true,
         role: [Role.User, Role.Contributor, Role.Admin],
     },
@@ -164,6 +154,27 @@ const routes: RouteConfig[] = [
         role: [Role.Contributor, Role.Admin],
     },
     {
+        path: '/startup/projects',
+        component: ProjectsPageContributor,
+        layout: Style4Layout,
+        isPrivate: true,
+        role: [Role.Contributor, Role.Admin],
+    },
+    {
+        path: '/startup/create-project',
+        component: CreateNewPage,
+        layout: Style4Layout,
+        isPrivate: true,
+        role: [Role.Contributor, Role.Admin],
+    },
+    {
+        path: '/startup/wallet',
+        component: WalletPage,
+        layout: Style4Layout,
+        isPrivate: true,
+        role: [Role.Contributor, Role.Admin],
+    },
+    {
         path: '/admin',
         component: AdminDashboard,
         layout: Style5Layout,
@@ -177,7 +188,20 @@ const routes: RouteConfig[] = [
         isPrivate: true,
         role: [Role.Admin],
     },
-
+    {
+        path: '/admin/users-management',
+        component: UserManagementPageAdmin,
+        layout: Style5Layout,
+        isPrivate: true,
+        role: [Role.Admin],
+    },
+    {
+        path: '/admin/projects',
+        component: ProjectsPageAdmin,
+        layout: Style5Layout,
+        isPrivate: true,
+        role: [Role.Admin],
+    }
 ]
 
 export default routes
