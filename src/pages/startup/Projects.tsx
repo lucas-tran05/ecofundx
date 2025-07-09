@@ -262,6 +262,10 @@ const StartupProjectDashboard = () => {
     //     setProjects(projects.filter(project => project.id !== id));
     // };
 
+    const handleEditProject = (project: Project): void => {
+        setProjects(projects.map(p => p.id === project.id ? project : p));
+    }
+
     const getStatusText = (status: ProjectStatus): string => {
         switch (status) {
             case 'idea': return 'Ý tưởng';
@@ -536,7 +540,9 @@ const StartupProjectDashboard = () => {
 
                                 {/* Action Buttons */}
                                 <div className="flex items-center gap-2 pt-4 border-t border-gray-200">
-                                    <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">
+                                    <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                                        onClick={() => handleEditProject(project)}
+                                    >
                                         <Edit className="w-4 h-4" />
                                         Cập nhật
                                     </button>
