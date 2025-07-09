@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Search, Plus, Filter, Calendar, Users, Target, AlertCircle, CheckCircle, Clock, Trash2, Edit, Eye, DollarSign, TrendingUp, PieChart, Settings } from 'lucide-react';
+import { Search, Plus, Filter, Calendar, Users, Target, AlertCircle, CheckCircle, Clock, Edit, Eye, DollarSign, TrendingUp, PieChart, Settings } from 'lucide-react';
 
 // Type definitions
 type ProjectStatus = 'idea' | 'planning' | 'development' | 'testing' | 'launched' | 'paused';
@@ -135,7 +135,7 @@ const StartupProjectDashboard = () => {
     const [sortBy, setSortBy] = useState<SortBy>('name');
     const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
     const [showFilters, setShowFilters] = useState<boolean>(false);
-    const [editingProject, setEditingProject] = useState<number | null>(null);
+    // const [editingProject, setEditingProject] = useState<number | null>(null);
 
     const getStatusColor = (status: ProjectStatus): string => {
         switch (status) {
@@ -242,25 +242,25 @@ const StartupProjectDashboard = () => {
         return new Date(dateString).toLocaleDateString('vi-VN');
     };
 
-    const handleStatusUpdate = (id: number, newStatus: ProjectStatus): void => {
-        setProjects(projects.map(project =>
-            project.id === id
-                ? { ...project, status: newStatus, lastUpdated: new Date().toISOString().split('T')[0] }
-                : project
-        ));
-    };
+    // const handleStatusUpdate = (id: number, newStatus: ProjectStatus): void => {
+    //     setProjects(projects.map(project =>
+    //         project.id === id
+    //             ? { ...project, status: newStatus, lastUpdated: new Date().toISOString().split('T')[0] }
+    //             : project
+    //     ));
+    // };
 
-    const handleFundingUpdate = (id: number, newFunding: number): void => {
-        setProjects(projects.map(project =>
-            project.id === id
-                ? { ...project, fundingAllocated: newFunding, lastUpdated: new Date().toISOString().split('T')[0] }
-                : project
-        ));
-    };
+    // const handleFundingUpdate = (id: number, newFunding: number): void => {
+    //     setProjects(projects.map(project =>
+    //         project.id === id
+    //             ? { ...project, fundingAllocated: newFunding, lastUpdated: new Date().toISOString().split('T')[0] }
+    //             : project
+    //     ));
+    // };
 
-    const handleDelete = (id: number): void => {
-        setProjects(projects.filter(project => project.id !== id));
-    };
+    // const handleDelete = (id: number): void => {
+    //     setProjects(projects.filter(project => project.id !== id));
+    // };
 
     const getStatusText = (status: ProjectStatus): string => {
         switch (status) {
