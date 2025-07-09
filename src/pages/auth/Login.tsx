@@ -34,7 +34,7 @@ const EcofundLoginPage = () => {
             "password": "123",
             "confirmPassword": "123",
             "status": true,
-            "role": 2,
+            "role": 3,
             "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
             "social": [
                 {
