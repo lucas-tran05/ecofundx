@@ -86,13 +86,12 @@ const AppHeader: FC = () => {
                     ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-200/20"
                     : "bg-white/95 backdrop-blur-sm shadow-sm"
                 }
-                min-h-auto 
-                
+                ${isMobile ? "px-4" : "px-6"}
             `}
             id="header-set"
         >
             <div className="container mx-auto px-4 py-4 md:px-6 lg:px-8">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between h-10">
                     {/* Logo với hiệu ứng gradient */}
                     <Link
                         to="/"
@@ -126,22 +125,21 @@ const AppHeader: FC = () => {
 
                     {/* Right Side - Desktop */}
                     {!isMobile && (
-                        <div className="hidden md:flex items-center space-x-4">
-                            <div className="transform hover:scale-105 transition-transform duration-200">
+                        <div className="hidden md:flex items-center space-x-4 h-10">
+                            <div className="transform hover:scale-105 transition-transform duration-200 flex items-center h-full">
                                 <LanguageSwitcher />
                             </div>
-
                             {user ? (
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger className="flex items-center space-x-3 p-2 rounded-lg transition-all duration-200 group">
-                                        <Avatar className="ring-2 ring-[var(--color-primary-1)] ring-offset-2 transition-all duration-300 group-hover:ring-[var(--color-primary-active)]">
+                                    <DropdownMenuTrigger className="flex items-center space-x-3 px-2 py-1 rounded-lg transition-all duration-200 group h-10">
+                                        <Avatar className="w-8 h-8 ring-2 ring-[var(--color-primary-1)] ring-offset-2 transition-all duration-300 group-hover:ring-[var(--color-primary-active)]">
                                             <AvatarImage src={user?.avatar || ""} />
-                                            <AvatarFallback className="bg-[image:var(--text-gradient)] text-[var(--text-on-primary)]">
+                                            <AvatarFallback className="bg-[image:var(--text-gradient)] text-[var(--text-on-primary)] text-sm">
                                                 {user.username[0]}
                                             </AvatarFallback>
                                         </Avatar>
                                         <div className="flex items-center space-x-1">
-                                            <span className="font-semibold text-gray-800">{user.fullname}</span>
+                                            <span className="font-semibold text-gray-800 text-sm">{user.fullname}</span>
                                             <ChevronDown className="w-4 h-4 text-gray-500 group-hover:text-emerald-600 transition-colors duration-200" />
                                         </div>
                                     </DropdownMenuTrigger>
@@ -173,17 +171,19 @@ const AppHeader: FC = () => {
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                             ) : (
-                                <div className="flex items-center space-x-3">
+                                <div className="flex items-center space-x-3 h-10">
                                     <Button
                                         asChild
                                         variant="outline"
-                                        className="border-[var(--color-primary-1)] text-[var(--color-primary-active)] hover:bg-[var(--color-primary-tint)] hover:border-[var(--color-primary-active)]: transition-all duration-300"
+                                        size="sm"
+                                        className="h-10 border-[var(--color-primary-1)] text-[var(--color-primary-active)] hover:bg-[var(--color-primary-tint)] hover:border-[var(--color-primary-active)] transition-all duration-300"
                                     >
                                         <Link to="/register?step=1">{t("register")}</Link>
                                     </Button>
                                     <Button
                                         asChild
-                                        className="bg-[image:var(--text-gradient)] text-[var(--text-on-primary)] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                                        size="sm"
+                                        className="h-10 bg-[image:var(--text-gradient)] text-[var(--text-on-primary)] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                                     >
                                         <Link to="/login">{t("login")}</Link>
                                     </Button>
@@ -194,8 +194,8 @@ const AppHeader: FC = () => {
 
                     {/* Mobile Menu */}
                     {isMobile && (
-                        <div className="flex items-center space-x-3 md:hidden">
-                            <div className="transform hover:scale-105 transition-transform duration-200">
+                        <div className="flex items-center space-x-3 md:hidden h-10">
+                            <div className="transform hover:scale-105 transition-transform duration-200 flex items-center h-full">
                                 <LanguageSwitcher />
                             </div>
                             <Sheet>
@@ -203,7 +203,7 @@ const AppHeader: FC = () => {
                                     <Button
                                         variant="ghost"
                                         size="icon"
-                                        className="hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-300"
+                                        className="h-10 w-10 hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-300"
                                     >
                                         <Menu className="w-5 h-5" />
                                     </Button>
@@ -234,7 +234,7 @@ const AppHeader: FC = () => {
                                             {user ? (
                                                 <div>
                                                     <div className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg">
-                                                        <Avatar className="ring-2 ring-emerald-200">
+                                                        <Avatar className="w-10 h-10 ring-2 ring-emerald-200">
                                                             <AvatarImage src={user?.avatar || ""} />
                                                             <AvatarFallback className="bg-gradient-to-br from-emerald-400 to-teal-500 text-white">
                                                                 {user.username[0]}
@@ -280,13 +280,13 @@ const AppHeader: FC = () => {
                                                     <Button
                                                         asChild
                                                         variant="outline"
-                                                        className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300"
+                                                        className="w-full h-10 border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300"
                                                     >
                                                         <Link to="/register?step=1">{t("register")}</Link>
                                                     </Button>
                                                     <Button
                                                         asChild
-                                                        className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                                                        className="w-full h-10 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                                                     >
                                                         <Link to="/login">{t("login")}</Link>
                                                     </Button>

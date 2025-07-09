@@ -37,7 +37,8 @@ export default function Style1Layout({ children }: { children: React.ReactNode }
 
                 {/* Main Content */}
                 <div className="relative z-10 w-full">
-                    <div style={{ height: headerHeight + 20}}></div>
+                    <div style={{ height: headerHeight }}></div>
+
                     {children}
                 </div>
             </div>
